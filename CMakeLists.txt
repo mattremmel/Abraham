@@ -21,7 +21,7 @@ set(CMAKE_CXX_STANDARD 14)
 # Headers
 ###############
 
-set(HEADERS_CORE include/abraham/core include/abraham/core/Exception.h)
+set(HEADERS_CORE include/abraham/core)
 set(HEADERS ${HEADERS_CORE})
 
 
@@ -31,7 +31,8 @@ set(HEADERS ${HEADERS_CORE})
 
 set(SOURCE_FILES
         src/core/Object.cpp
-        src/core/Exception.cpp)
+        src/core/Exception.cpp
+        )
 
 
 ###############
