@@ -3,7 +3,40 @@
 //
 
 #include "gtest/gtest.h"
+#include "Object.h"
+#include "Exception.h"
 
-TEST(Smoke, test) {
-    EXPECT_TRUE(true);
+using namespace abraham;
+
+
+TEST(Object, toString) {
+    // Setup
+    Object o = Object();
+
+    // Assertion
+    EXPECT_THROW(o.toString(), NotImplementedException);
+}
+
+TEST(Object, toHashCode) {
+    // Setup
+    Object o = Object();
+
+    // Assertion
+    EXPECT_THROW(o.toHashCode(), NotImplementedException);
+}
+
+TEST(Object, is) {
+    // Setup
+    Object o = Object();
+
+    // Assertions
+    EXPECT_THROW(o.is(o), NotImplementedException);
+}
+
+TEST(Object, equals) {
+    // Setup
+    Object o = Object();
+
+    // Assertions
+    EXPECT_THROW(o.equals(o), NotImplementedException);
 }
