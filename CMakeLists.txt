@@ -21,18 +21,23 @@ set(CMAKE_CXX_STANDARD 14)
 # Headers
 ###############
 
+set(HEADERS_CONTAINER include/abraham/container)
 set(HEADERS_CORE include/abraham/core)
-set(HEADERS ${HEADERS_CORE})
+set(HEADERS ${HEADERS_CONTAINER} ${HEADERS_CORE})
 
 
 ###############
 # Source
 ###############
 
-set(SOURCE_FILES
+set(SOURCE_CORE
         src/core/Object.cpp
         src/core/Exception.cpp
         )
+set(SOURCE_CONTAINER
+        src/container/Strings.cpp
+        )
+set(SOURCE_ALL ${SOURCE_CORE} ${SOURCE_CONTAINER})
 
 
 ###############
@@ -68,6 +73,7 @@ endif (DOXYGEN_FOUND)
 
 set(TEST_SOURCE
         tests/core/Object_Tests.cpp
+#        tests/container/String_Tests.cpp
         )
 
 set(GMOCK_SOURCE lib/gmock-1.8/gmock-gtest-all.cc lib/gmock-1.8/gmock-gtest-main.cc)
@@ -82,7 +88,7 @@ include_directories(${HEADERS} ${GMOCK_HEADERS})
 
 set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 
-add_executable(abraham-tests ${GMOCK} ${TEST_SOURCE} ${SOURCE_FILES})
-add_library(abraham ${HEADERS} ${SOURCE_FILES})
+add_executable(abraham-tests ${GMOCK} ${TEST_SOURCE} ${SOURCE_ALL})
+add_library(abraham ${HEADERS} ${SOURCE_ALL})
 
 
