@@ -73,7 +73,7 @@ endif (DOXYGEN_FOUND)
 
 set(TEST_SOURCE
         tests/core/Object_Tests.cpp
-#        tests/container/String_Tests.cpp
+        tests/container/String_Tests.cpp
         )
 
 set(GMOCK_SOURCE lib/gmock-1.8/gmock-gtest-all.cc lib/gmock-1.8/gmock-gtest-main.cc)

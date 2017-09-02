@@ -9,18 +9,6 @@
 #include <vector>
 
 
-// String Constants
-static const std::string ASCII_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-static const std::string ASCII_LOWERCASE = "abcdefghijklmnopqrstuvwxyz";
-static const std::string ASCII_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-static const std::string ASCII_WHITESPACE = " \t\r\n\v\f";
-static const std::string ASCII_PUNCTUATION = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
-static const std::string ASCII_DIGITS = "0123456789";
-static const std::string ASCII_HEX_DIGITS = "0123456789abcdefABCDEF";
-static const std::string ASCII_OCT_DIGITS = "01234567";
-static const std::string ASCII_PRINTABLE = ASCII_LETTERS + ASCII_DIGITS + ASCII_PUNCTUATION + ASCII_WHITESPACE;
-
-
 namespace abraham {
 
 /**
@@ -55,14 +43,14 @@ namespace abraham {
         String(const std::string &string);
 
         /**
-         * Constructor that creats a String object from another String object.
+         * Constructor that creates a String object from another String object.
          * @param string - The String object that the String object is constructed from.
          */
         String(const String &string);
 
         /**
          * Operator overload to access String characters using the '[ ]' operator.
-         * @param index - The 0-basesd index of the character in the String.
+         * @param index - The 0-based index of the character in the String.
          * @return - A char reference of the character at the provided index.
          */
         char &operator[](size_t index);
@@ -465,6 +453,56 @@ namespace abraham {
          * @return The String value as a std::string.
          */
         std::string std_string() const;
+
+        /**
+         * The ASCII upper case letters: ABCDEFGHIJKLMNOPQRSTUVWXYZ
+         */
+        static const std::string ASCII_UPPERCASE;
+
+        /**
+         * The ASCII lower case letter: abcdefghijklmnopqrstuvwxyz
+         */
+        static const std::string ASCII_LOWERCASE;
+
+        /**
+         * The ASCII alphabetic letters: ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+         */
+        static const std::string ASCII_LETTERS;
+
+        /**
+         * The ASCII whitespace characters.
+         */
+        static const std::string ASCII_WHITESPACE;
+
+        /**
+         * The ASCII punctuation characters: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+         */
+        static const std::string ASCII_PUNCTUATION;
+
+        /**
+         * The ASCII numeric digits: 0123456789
+         */
+        static const std::string ASCII_DIGITS;
+
+        /**
+         * The ASCII alphabetic letters and digits: ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789
+         */
+        static const std::string ASCII_ALPHANUMERIC;
+
+        /**
+         * The ASCII hexadecimal letters and digits: 0123456789abcdefABCDEF
+         */
+        static const std::string ASCII_HEX_DIGITS;
+
+        /**
+         * The ASCII octal digits: 01234567
+         */
+        static const std::string ASCII_OCT_DIGITS;
+
+        /**
+         * The ASCII printable characters, including whitespace: ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+         */
+        static const std::string ASCII_PRINTABLE;
     };
 }
 

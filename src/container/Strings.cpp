@@ -7,6 +7,7 @@
 
 using namespace abraham;
 
+
 String::String() {
     throw NotImplementedException();
 }
@@ -262,3 +263,14 @@ const char *String::c_string() const {
 std::string String::std_string() const {
     throw NotImplementedException();
 }
+
+const std::string String::ASCII_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const std::string String::ASCII_LOWERCASE = "abcdefghijklmnopqrstuvwxyz";
+const std::string String::ASCII_LETTERS = ASCII_UPPERCASE + ASCII_LOWERCASE;
+const std::string String::ASCII_WHITESPACE = " \t\r\n\v\f";
+const std::string String::ASCII_PUNCTUATION = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+const std::string String::ASCII_DIGITS = "0123456789";
+const std::string String::ASCII_ALPHANUMERIC = ASCII_UPPERCASE + ASCII_LOWERCASE + ASCII_DIGITS;
+const std::string String::ASCII_HEX_DIGITS = "0123456789abcdefABCDEF";
+const std::string String::ASCII_OCT_DIGITS = "01234567";
+const std::string String::ASCII_PRINTABLE = ASCII_LETTERS + ASCII_DIGITS + ASCII_PUNCTUATION + ASCII_WHITESPACE;
