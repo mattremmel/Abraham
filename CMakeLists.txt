@@ -23,7 +23,8 @@ set(CMAKE_CXX_STANDARD 14)
 
 set(HEADERS_CONTAINER include/abraham/container)
 set(HEADERS_CORE include/abraham/core)
-set(HEADERS ${HEADERS_CONTAINER} ${HEADERS_CORE})
+set(HEADERS_TIME include/abraham/time)
+set(HEADERS ${HEADERS_CONTAINER} ${HEADERS_CORE} ${HEADERS_TIME})
 
 
 ###############
@@ -37,7 +38,11 @@ set(SOURCE_CORE
 set(SOURCE_CONTAINER
         src/container/Strings.cpp
         )
-set(SOURCE_ALL ${SOURCE_CORE} ${SOURCE_CONTAINER})
+set(SOURCE_TIME
+        src/time/Interval.cpp
+        src/time/Timer.cpp
+        )
+set(SOURCE_ALL ${SOURCE_CORE} ${SOURCE_CONTAINER} ${SOURCE_TIME})
 
 
 ###############
@@ -74,6 +79,8 @@ endif (DOXYGEN_FOUND)
 set(TEST_SOURCE
         tests/core/Object_Tests.cpp
         tests/container/String_Tests.cpp
+        tests/time/Timer_Tests.cpp
+        tests/time/Interval_Tests.cpp
         )
 
 set(GMOCK_SOURCE lib/gmock-1.8/gmock-gtest-all.cc lib/gmock-1.8/gmock-gtest-main.cc)
@@ -84,11 +91,12 @@ SET(GMOCK ${GMOCK_SOURCE} ${GMOCK_HEADERS})
 ###############
 # Build
 ###############
-include_directories(${HEADERS} ${GMOCK_HEADERS})
+include_directories(include ${HEADERS} ${GMOCK_HEADERS})
 
 set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin)
+add_library(abraham STATIC ${HEADERS} ${SOURCE_ALL})
 
-add_executable(abraham-tests ${GMOCK} ${TEST_SOURCE} ${SOURCE_ALL})
-add_library(abraham ${HEADERS} ${SOURCE_ALL})
+add_executable(abraham-tests ${GMOCK} ${TEST_SOURCE})
+target_link_libraries(abraham-tests abraham)
 
 
