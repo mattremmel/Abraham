@@ -15,7 +15,10 @@ namespace abraham {
  * A wrapper around std::string that provides more convenient and higher level functions.
  */
     class String {
-    private:
+    protected:
+        /**
+         * The internal std::string object that this Class wraps.
+         */
         std::string _data;
 
     public:
