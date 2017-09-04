@@ -6,6 +6,7 @@
 #define ABRAHAM_EXCEPTION_H
 
 #include <stdexcept>
+#include <string>
 
 
 namespace abraham {
@@ -27,7 +28,50 @@ namespace abraham {
     };
 
     /**
-     * The exception class used during development for a function that hasn't been implemented yet.
+     * The Exception class used for indicating an invalid index access.
+     */
+    class OutOfBoundsException : public Exception {
+    public:
+        /**
+         * Default constructor for OutOfBoundsException.
+         */
+        OutOfBoundsException(size_t attempted);
+    };
+
+    /**
+     * The Exception class used for indicating an invalid argument.
+     */
+    class InvalidArgumentException : public Exception {
+    public:
+        /**
+         * Default constructor for InvalidArgumentException.
+         */
+        InvalidArgumentException();
+
+        /**
+         * Constructor that allows a helpful message to be set.
+         */
+        InvalidArgumentException(const std::string &message);
+    };
+
+    /**
+     * The Exception class used for indicating an invalid value.
+     */
+    class InvalidValueException : public Exception {
+    public:
+        /**
+         * Default constructor for InvalidValueException.
+         */
+        InvalidValueException();
+
+        /**
+         * Constructor that allows a helpful message to be set.
+         */
+        InvalidValueException(const std::string &message);
+    };
+
+    /**
+     * The Exception class used during development for a function that hasn't been implemented yet.
      */
     class NotImplementedException : public Exception {
     public:

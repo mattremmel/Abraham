@@ -141,6 +141,13 @@ namespace abraham {
         String &setCharacterAtIndex(const char c, size_t index);
 
         /**
+         * Sets a new value for the String.
+         * @param string - The new value to set.
+         * @return A self reference.
+         */
+        String &setValue(const String &string);
+
+        /**
          * Sets all upper case characters in the String to their lower case counterparts.
          * @return A self reference.
          */
@@ -195,6 +202,7 @@ namespace abraham {
 
         /**
          * Splits the String into components at each provided delimeter.
+         * If a delimeter of size 0 is provided, the String will be split on all characters.
          * @param delimiter - The value the String should be split on.
          * @return A vector of String components.
          */
@@ -380,7 +388,7 @@ namespace abraham {
          * @return -1 if this String is lexicographically less than the other; 0 if they are equal; and 1 if
          * this String is lexicographically greater than the other.
          */
-        int compareOverRange(const String &string, size_t from_index, size_t to_index);
+        int compareOverRange(const String &string, size_t from_index, size_t to_index, bool case_sensitive = true);
 
         /**
          * Get the integer value of the number represented in the String. An exception is thrown if the String value isn't valid.
@@ -438,6 +446,7 @@ namespace abraham {
 
         /**
          * Get the bool value of the number represented in the String. An exception is thrown if the String value isn't valid.
+         * Valid values are: true, false, yes, no, n, y, 0, 1. Values are not case sensitive.
          * @return The bool value represented in the String.
          */
         bool boolValue() const;
@@ -456,6 +465,11 @@ namespace abraham {
          * @return The String value as a std::string.
          */
         std::string std_string() const;
+
+        /**
+         * Value representing a non-existent index.
+         */
+        static const size_t NO_INDEX;
 
         /**
          * The ASCII upper case letters: ABCDEFGHIJKLMNOPQRSTUVWXYZ

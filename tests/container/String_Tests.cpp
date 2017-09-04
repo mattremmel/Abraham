@@ -7,3 +7,7 @@
 
 using namespace abraham;
 
+
+TEST(String, write_tests) {
+    EXPECT_TRUE(false);
+}
