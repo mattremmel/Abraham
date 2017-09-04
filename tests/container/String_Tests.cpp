@@ -3,8 +3,7 @@
 //
 
 #include "gtest/gtest.h"
-#include "Strings.h"
-#include "Exception.h"
+#include "abraham/container/Strings.h"
 
 using namespace abraham;
 

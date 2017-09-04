@@ -2,8 +2,8 @@
 // Created by Matthew Remmel on 9/1/17.
 //
 
-#include "Strings.h"
-#include "Exception.h"
+#include "abraham/container/Strings.h"
+#include "abraham/core/Exception.h"
 
 using namespace abraham;
 
