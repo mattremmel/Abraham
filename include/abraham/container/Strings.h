@@ -11,9 +11,9 @@
 
 namespace abraham {
 
-/**
- * A wrapper around std::string that provides more convenient and higher level functions.
- */
+    /**
+     * A wrapper around std::string that provides more convenient and higher level functions.
+     */
     class String {
     protected:
         /**
