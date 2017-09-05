@@ -6,7 +6,7 @@
 #define ABRAHAM_STOPWATCH_H
 
 #include <chrono>
-#include "Interval.h"
+#include "abraham/time/Interval.h"
 
 
 namespace abraham {

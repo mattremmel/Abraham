@@ -3,7 +3,7 @@
 //
 
 #include "gtest/gtest.h"
-#include "Interval.h"
+#include "abraham/time/Interval.h"
 
 using namespace abraham;
 
