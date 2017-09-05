@@ -381,16 +381,6 @@ namespace abraham {
         int compare(const String &string, bool case_sensitive = true) const;
 
         /**
-         * Returns a value representing the lexicographical order of the String relative to another.
-         * @param string The value this String should be compared to.
-         * @param from_index - The start index of the compare.
-         * @param to_index - The end index of the compare.
-         * @return -1 if this String is lexicographically less than the other; 0 if they are equal; and 1 if
-         * this String is lexicographically greater than the other.
-         */
-        int compareOverRange(const String &string, size_t from_index, size_t to_index, bool case_sensitive = true);
-
-        /**
          * Get the integer value of the number represented in the String. An exception is thrown if the String value isn't valid.
          * @return The integer value represented in the String.
          */

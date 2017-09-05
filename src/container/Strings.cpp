@@ -401,25 +401,9 @@ int String::compare(const String &string, bool case_sensitive) const {
     if (case_sensitive) {
         return this->_data.compare(string._data);
     }
-
-    // This could be broken out and optimized a little
-    return this->copy().toLowerCase()._data.compare(string.copy().toLowerCase()._data);
-}
-
-int String::compareOverRange(const String &string, size_t from_index, size_t to_index, bool case_sensitive) {
-    // Check that both are valid ranges
-    if (to_index >= this->_data.length() || to_index >= string._data.length()) {
-        throw OutOfBoundsException(to_index);
-    }
-
-    String s1 = this->_data.substr(from_index, to_index);
-    String s2 = string._data.substr(from_index, to_index);
-
-    if (case_sensitive) {
-        return s1.compare(s2);
-    }
     else {
-        s1.toLowerCase().compare(s2.toLowerCase());
+        // This could be broken out and optimized a little
+        return this->copy().toLowerCase()._data.compare(string.copy().toLowerCase()._data);
     }
 }
 
