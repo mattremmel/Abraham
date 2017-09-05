@@ -16,6 +16,10 @@ set(PROJECT_VERSION_MINOR "1")
 set(PROJECT_VERSION_PATCH "0")
 set(CMAKE_CXX_STANDARD 14)
 
+set(STATIC_TARGET abraham)
+set(TEST_TARGET abraham-tests)
+set(COVERAGE_TARGET abraham-coverage)
+
 
 ###############
 # Headers
@@ -78,17 +82,50 @@ endif (DOXYGEN_FOUND)
 
 
 ###############
+# Coverage
+###############
+
+set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/scripts/cmake)
+
+include(CodeCoverage)
+
+set(COVERAGE_EXCLUDES
+        '${CMAKE_CURRENT_SOURCE_DIR}/lib/*'
+        '${CMAKE_CURRENT_SOURCE_DIR}/tests/*'
+        '/usr/include/*'
+        '*/c++/v1/*'
+        )
+
+SETUP_TARGET_FOR_COVERAGE(
+        NAME ${COVERAGE_TARGET}
+        EXECUTABLE ${TEST_TARGET}
+        DEPENDENCIES ${TEST_TARGET}
+)
+
+if(NOT CMAKE_BUILD_TYPE STREQUAL "Release")
+    APPEND_COVERAGE_COMPILER_FLAGS()
+endif()
+
+
+###############
 # Testing
 ###############
 
-set(TEST_SOURCE
+set(TEST_CORE
         tests/core/Object_Tests.cpp
+        )
+set(TEST_CONTAINER
         tests/container/String_Tests.cpp
-        tests/time/Timer_Tests.cpp
-        tests/time/Interval_Tests.cpp
-        tests/time/Stopwatch_Tests.cpp
+        )
+set(TEST_MEMORY
         tests/memory/Singleton_Tests.cpp
         )
+set(TEST_TIME
+        tests/time/Interval_Tests.cpp
+        tests/time/Stopwatch_Tests.cpp
+        tests/time/Timer_Tests.cpp
+        )
+set(TEST_ALL ${TEST_CORE} ${TEST_CONTAINER} ${TEST_MEMORY} ${TEST_TIME})
 
 set(GMOCK_SOURCE lib/gmock-1.8/gmock-gtest-all.cc lib/gmock-1.8/gmock-gtest-main.cc)
 set(GMOCK_HEADERS lib/gmock-1.8/)
@@ -101,9 +138,7 @@ SET(GMOCK ${GMOCK_SOURCE} ${GMOCK_HEADERS})
 include_directories(include ${HEADERS} ${GMOCK_HEADERS})
 
 set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin)
-add_library(abraham STATIC ${HEADERS} ${SOURCE_ALL})
+add_library(${STATIC_TARGET} STATIC ${HEADERS} ${SOURCE_ALL})
 
-add_executable(abraham-tests ${GMOCK} ${TEST_SOURCE})
-target_link_libraries(abraham-tests abraham)
-
-
+add_executable(${TEST_TARGET} ${GMOCK} ${TEST_ALL})
+target_link_libraries(${TEST_TARGET} ${STATIC_TARGET})
