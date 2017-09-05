@@ -40,6 +40,7 @@ set(SOURCE_CONTAINER
         )
 set(SOURCE_TIME
         src/time/Interval.cpp
+        src/time/Stopwatch.cpp
         src/time/Timer.cpp
         )
 set(SOURCE_ALL ${SOURCE_CORE} ${SOURCE_CONTAINER} ${SOURCE_TIME})
@@ -81,6 +82,7 @@ set(TEST_SOURCE
         tests/container/String_Tests.cpp
         tests/time/Timer_Tests.cpp
         tests/time/Interval_Tests.cpp
+        tests/time/Stopwatch_Tests.cpp
         )
 
 set(GMOCK_SOURCE lib/gmock-1.8/gmock-gtest-all.cc lib/gmock-1.8/gmock-gtest-main.cc)
