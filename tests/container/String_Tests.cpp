@@ -205,6 +205,90 @@ TEST(String, operator_inequality_self) {
     EXPECT_FALSE(string != string);
 }
 
+// Operator<
+
+TEST(String, operator_less) {
+    // Setup
+    String string1 = String("1");
+    String string2 = String("2");
+
+    // Assertions
+    EXPECT_TRUE(string1 < string2);
+    EXPECT_FALSE(string2 < string1);
+}
+
+TEST(String, operator_less_self) {
+    // Setup
+    String string = String("test");
+
+    // Assertions
+    EXPECT_FALSE(string < string);   
+}
+
+// Operator>
+
+TEST(String, operator_greater) {
+    // Setup
+    String string1 = String("2");
+    String string2 = String("1");
+
+    // Assertions
+    EXPECT_TRUE(string1 > string2);
+    EXPECT_FALSE(string2 > string1);
+}
+
+TEST(String, operator_greater_self) {
+    // Setup
+    String string = String("test");
+
+    // Assert
+    EXPECT_FALSE(string > string);
+}
+
+// Operator<=
+
+TEST(String, operator_less_equal) {
+    // Setup
+    String string1 = String("1");
+    String string2 = String("1");
+    String string3 = String("2");
+
+    // Assertions
+    EXPECT_TRUE(string1 <= string2);
+    EXPECT_TRUE(string1 <= string3);
+    EXPECT_FALSE(string3 <= string1);
+}
+
+TEST(String, operator_less_equal_self) {
+    // Setup
+    String string = String("test");
+
+    // Assertions
+    EXPECT_TRUE(string <= string);
+}
+
+// Operator>=
+
+TEST(String, operator_greater_equal) {
+    // Setup
+    String string1 = String("2");
+    String string2 = String("2");
+    String string3 = String("1");
+
+    // Assertions
+    EXPECT_TRUE(string1 >= string2);
+    EXPECT_TRUE(string1 >= string3);
+    EXPECT_FALSE(string3 >= string1);
+}
+
+TEST(String, operator_greater_equal_self) {
+    // Setup
+    String string = String("test");
+
+    // Assertions
+    EXPECT_TRUE(string >= string);
+}
+
 // Length
 
 TEST(String, string_length_empty) {
@@ -1053,43 +1137,6 @@ TEST(String, compare_ignore_case_equal_sub) {
 
     // Assertion
     EXPECT_TRUE(string1.compare(string2, false) < 0);
-}
-
-// CompareOverRange
-
-TEST(String, compare_over_range_less) {
-    // Setup
-    String string1 = String("zz aaron zz");
-    String string2 = String("aa mark aa");
-    // Assertion
-    EXPECT_TRUE(string1.compareOverRange(string2, 3, 7));
-}
-
-TEST(String, compare_over_range_greater) {
-    // Setup
-    String string1 = String("aa mark aa");
-    String string2 = String("zz aaron zz");
-
-    // Assertion
-    EXPECT_TRUE(string1.compareOverRange(string2, 3, 6));
-}
-
-TEST(String, compare_over_range_equal) {
-    // Setup
-    String string1 = String("aa hello aa");
-    String string2 = String("zz hello zz");
-
-    // Assertion
-    EXPECT_TRUE(string1.compareOverRange(string2, 3, 7));
-}
-
-TEST(String, compare_bounds_check) {
-    // Setup
-    String string1 = String("test");
-    String string2 = String("test");
-
-    // Assertions
-    EXPECT_THROW(string1.compareOverRange(string2, 0, 10), OutOfBoundsException);
 }
 
 // IntValue
