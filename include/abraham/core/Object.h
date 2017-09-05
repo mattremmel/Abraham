@@ -35,6 +35,12 @@ namespace abraham {
          * @return true if this object "is equivalently equal to" this object; false otherwise.
          */
         bool equals(const Object& o);
+
+        // TODO: Compare
+
+        // TODO: description
+
+        // TODO: inspect
     };
 }
 
