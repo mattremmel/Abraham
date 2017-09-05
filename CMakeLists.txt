@@ -23,8 +23,9 @@ set(CMAKE_CXX_STANDARD 14)
 
 set(HEADERS_CONTAINER include/abraham/container)
 set(HEADERS_CORE include/abraham/core)
+set(HEADERS_MEMORY include/abraham/memory)
 set(HEADERS_TIME include/abraham/time)
-set(HEADERS ${HEADERS_CONTAINER} ${HEADERS_CORE} ${HEADERS_TIME})
+set(HEADERS ${HEADERS_CONTAINER} ${HEADERS_CORE} ${HEADERS_MEMORY} ${HEADERS_TIME})
 
 
 ###############
@@ -38,12 +39,15 @@ set(SOURCE_CORE
 set(SOURCE_CONTAINER
         src/container/Strings.cpp
         )
+set(SOURCE_MEMORY
+        src/memory/Singleton.cpp
+        )
 set(SOURCE_TIME
         src/time/Interval.cpp
         src/time/Stopwatch.cpp
         src/time/Timer.cpp
         )
-set(SOURCE_ALL ${SOURCE_CORE} ${SOURCE_CONTAINER} ${SOURCE_TIME})
+set(SOURCE_ALL ${SOURCE_CORE} ${SOURCE_CONTAINER} ${SOURCE_MEMORY} ${SOURCE_TIME})
 
 
 ###############
@@ -83,6 +87,7 @@ set(TEST_SOURCE
         tests/time/Timer_Tests.cpp
         tests/time/Interval_Tests.cpp
         tests/time/Stopwatch_Tests.cpp
+        tests/memory/Singleton_Tests.cpp
         )
 
 set(GMOCK_SOURCE lib/gmock-1.8/gmock-gtest-all.cc lib/gmock-1.8/gmock-gtest-main.cc)
