@@ -41,6 +41,7 @@ set(SOURCE_CORE
         src/core/Exception.cpp
         )
 set(SOURCE_CONTAINER
+        src/container/Array.cpp
         src/container/Strings.cpp
         )
 set(SOURCE_MEMORY
@@ -115,6 +116,7 @@ set(TEST_CORE
         tests/core/Object_Tests.cpp
         )
 set(TEST_CONTAINER
+        tests/container/Array_Tests.cpp
         tests/container/String_Tests.cpp
         )
 set(TEST_MEMORY
@@ -129,12 +131,13 @@ set(TEST_ALL ${TEST_CORE} ${TEST_CONTAINER} ${TEST_MEMORY} ${TEST_TIME})
 
 set(GMOCK_SOURCE lib/gmock-1.8/gmock-gtest-all.cc lib/gmock-1.8/gmock-gtest-main.cc)
 set(GMOCK_HEADERS lib/gmock-1.8/)
-SET(GMOCK ${GMOCK_SOURCE} ${GMOCK_HEADERS})
+set(GMOCK ${GMOCK_SOURCE} ${GMOCK_HEADERS})
 
 
 ###############
 # Build
 ###############
+
 include_directories(include ${HEADERS} ${GMOCK_HEADERS})
 
 set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin)
