@@ -47,7 +47,7 @@ namespace abraham {
 
         /**
          * Constructor that creates a String object from another String object.
-         * @param string - The String object that the String object is constructed from.
+         * @param string - The String object that this String object is constructed from.
          */
         String(const String &string);
 
@@ -179,7 +179,7 @@ namespace abraham {
         String &append(const String &string);
 
         /**
-         * Retrieve a subsection of this String.
+         * Retrieve a subsection of the String.
          * @param from_index - The starting index of the desired substring.
          * @param to_index - The ending index of the desired substring.
          * @return A new String whose value is that of the substring.
@@ -187,14 +187,14 @@ namespace abraham {
         String substring(size_t from_index, size_t to_index) const;
 
         /**
-         * Retrieve a subsection of this String, from the provided index to the end.
+         * Retrieve a subsection of the String from the provided index to the end.
          * @param index - The starting index of the desired substring.
          * @return A new String whose value is that of the substring.
          */
         String substringFromIndex(size_t index) const;
 
         /**
-         * Retrieve a subsection of this String, from the beginning to the provided index.
+         * Retrieve a subsection of the String from the beginning to the provided index.
          * @param index - The index of the end of the desired substring.
          * @return A new String whose value is that of the substring.
          */
@@ -341,7 +341,7 @@ namespace abraham {
         size_t indexOf(const String &string) const;
 
         /**
-         * Returns the index of the first occurrence of the provided value found after the provided index.
+         * Returns the index of the first occurrence of the provided value found after the specified index.
          * @param string - The value to be found.
          * @param min_index - The index to start search from.
          * @return The index of the value. -1 if not found.
@@ -356,7 +356,7 @@ namespace abraham {
         size_t indexOfLast(const String &string) const;
 
         /**
-         * Returns the index of the last occurrence of the provided value found before the provided index.
+         * Returns the index of the last occurrence of the provided value found before the specified index.
          * @param string - The value to be found.
          * @param max_index - The index where the search should stop.
          * @return The index of the value. -1 if not found.
@@ -364,7 +364,7 @@ namespace abraham {
         size_t indexOfLast(const String &string, size_t max_index) const;
 
         /**
-         * Checks the equality of the two String objects.
+         * Checks the equality of two String objects.
          * @param string - The other String to compare this String to.
          * @param case_sensitive - Whether the compare should be case sensitive. Default = true.
          * @return true if the two String objects are equal in value; false otherwise.
