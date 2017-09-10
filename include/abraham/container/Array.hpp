@@ -2,13 +2,13 @@
 // Created by Matthew Remmel on 9/5/17.
 //
 
-#ifndef ABRAHAM_ARRAY_H
-#define ABRAHAM_ARRAY_H
+#ifndef ABRAHAM_ARRAY_HPP
+#define ABRAHAM_ARRAY_HPP
 
 #include <vector>
 #include <string>
 #include <sstream>
-#include "abraham/core/Exception.h"
+#include "Exception.hpp"
 
 
 namespace abraham {
@@ -773,4 +773,4 @@ namespace abraham {
     const size_t Array<T>::NO_INDEX = -1;
 }
 
-#endif //ABRAHAM_ARRAY_H
+#endif //ABRAHAM_ARRAY_HPP

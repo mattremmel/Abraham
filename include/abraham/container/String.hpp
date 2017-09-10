@@ -2,8 +2,8 @@
 // Created by Matthew Remmel on 9/1/17.
 //
 
-#ifndef ABRAHAM_STRING_H
-#define ABRAHAM_STRING_H
+#ifndef ABRAHAM_STRING_HPP
+#define ABRAHAM_STRING_HPP
 
 #include <string>
 #include <vector>
@@ -513,4 +513,4 @@ namespace abraham {
     };
 }
 
-#endif //ABRAHAM_STRING_H
+#endif //ABRAHAM_STRING_HPP

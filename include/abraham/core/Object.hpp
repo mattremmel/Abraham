@@ -2,8 +2,8 @@
 // Created by Matthew Remmel on 8/30/17.
 //
 
-#ifndef ABRAHAM_OBJECT_H
-#define ABRAHAM_OBJECT_H
+#ifndef ABRAHAM_OBJECT_HPP
+#define ABRAHAM_OBJECT_HPP
 
 #include <string>
 
@@ -45,4 +45,4 @@ namespace abraham {
 }
 
 
-#endif //ABRAHAM_OBJECT_H
+#endif //ABRAHAM_OBJECT_HPP

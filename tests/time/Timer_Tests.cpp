@@ -1,9 +1,9 @@
-////
-//// Created by Matthew Remmel on 9/2/17.
-////
 //
+// Created by Matthew Remmel on 9/2/17.
+//
+
 #include "gtest/gtest.h"
-#include "abraham/time/Timer.h"
+#include "Timer.hpp"
 
 using namespace abraham;
 

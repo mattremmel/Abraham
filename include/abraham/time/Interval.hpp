@@ -2,8 +2,8 @@
 // Created by Matthew Remmel on 9/3/17.
 //
 
-#ifndef ABRAHAM_DURATION_H
-#define ABRAHAM_DURATION_H
+#ifndef ABRAHAM_DURATION_HPP
+#define ABRAHAM_DURATION_HPP
 
 #include <chrono>
 
@@ -203,4 +203,4 @@ namespace abraham {
     };
 }
 
-#endif //ABRAHAM_DURATION_H
+#endif //ABRAHAM_DURATION_HPP

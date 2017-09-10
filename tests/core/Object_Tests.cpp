@@ -3,8 +3,8 @@
 //
 
 #include "gtest/gtest.h"
-#include "abraham/core/Object.h"
-#include "abraham/core/Exception.h"
+#include "Object.hpp"
+#include "Exception.hpp"
 
 using namespace abraham;
 

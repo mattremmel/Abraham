@@ -2,8 +2,8 @@
 // Created by Matthew Remmel on 8/31/17.
 //
 
-#ifndef ABRAHAM_EXCEPTION_H
-#define ABRAHAM_EXCEPTION_H
+#ifndef ABRAHAM_EXCEPTION_HPP
+#define ABRAHAM_EXCEPTION_HPP
 
 #include <stdexcept>
 #include <string>
@@ -82,4 +82,4 @@ namespace abraham {
     };
 }
 
-#endif //ABRAHAM_EXCEPTION_H
+#endif //ABRAHAM_EXCEPTION_HPP

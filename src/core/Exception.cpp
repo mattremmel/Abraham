@@ -2,7 +2,7 @@
 // Created by Matthew Remmel on 8/31/17.
 //
 
-#include "abraham/core/Exception.h"
+#include "Exception.hpp"
 
 using namespace abraham;
 

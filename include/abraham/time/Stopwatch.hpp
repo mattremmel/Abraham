@@ -2,11 +2,11 @@
 // Created by Matthew Remmel on 9/4/17.
 //
 
-#ifndef ABRAHAM_STOPWATCH_H
-#define ABRAHAM_STOPWATCH_H
+#ifndef ABRAHAM_STOPWATCH_HPP
+#define ABRAHAM_STOPWATCH_HPP
 
 #include <chrono>
-#include "abraham/time/Interval.h"
+#include "Interval.hpp"
 
 
 namespace abraham {
@@ -65,4 +65,4 @@ namespace abraham {
     };
 }
 
-#endif //ABRAHAM_STOPWATCH_H
+#endif //ABRAHAM_STOPWATCH_HPP

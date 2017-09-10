@@ -2,10 +2,10 @@
 // Created by Matthew Remmel on 9/2/17.
 //
 
-#ifndef ABRAHAM_TIMER_H
-#define ABRAHAM_TIMER_H
+#ifndef ABRAHAM_TIMER_HPP
+#define ABRAHAM_TIMER_HPP
 
-#include "abraham/time/Interval.h"
+#include "Interval.hpp"
 #include <chrono>
 #include <thread>
 
@@ -177,4 +177,4 @@ namespace abraham {
     };
 }
 
-#endif //ABRAHAM_TIMER_H
+#endif //ABRAHAM_TIMER_HPP

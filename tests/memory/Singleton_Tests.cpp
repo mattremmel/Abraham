@@ -3,7 +3,7 @@
 //
 
 #include "gtest/gtest.h"
-#include "abraham/memory/Singleton.h"
+#include "Singleton.hpp"
 
 using namespace abraham;
 

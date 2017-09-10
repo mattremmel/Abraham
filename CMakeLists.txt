@@ -42,7 +42,7 @@ set(SOURCE_CORE
         )
 set(SOURCE_CONTAINER
         src/container/Array.cpp
-        src/container/Strings.cpp
+        src/container/String.cpp
         )
 set(SOURCE_MEMORY
         src/memory/Singleton.cpp
@@ -138,7 +138,7 @@ set(GMOCK ${GMOCK_SOURCE} ${GMOCK_HEADERS})
 # Build
 ###############
 
-include_directories(include ${HEADERS} ${GMOCK_HEADERS})
+include_directories(${HEADERS} ${GMOCK_HEADERS})
 
 set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 add_library(${STATIC_TARGET} STATIC ${HEADERS} ${SOURCE_ALL})

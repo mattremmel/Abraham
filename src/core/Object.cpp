@@ -2,8 +2,8 @@
 // Created by Matthew Remmel on 8/30/17.
 //
 
-#include "Object.h"
-#include "Exception.h"
+#include "Object.hpp"
+#include "Exception.hpp"
 
 using namespace abraham;
 

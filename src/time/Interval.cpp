@@ -2,7 +2,7 @@
 // Created by Matthew Remmel on 9/3/17.
 //
 
-#include "abraham/time/Interval.h"
+#include "Interval.hpp"
 
 using namespace abraham;
 

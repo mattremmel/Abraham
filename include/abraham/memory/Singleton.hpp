@@ -2,8 +2,8 @@
 // Created by Matthew Remmel on 9/4/17.
 //
 
-#ifndef ABRAHAM_SINGLETON_H
-#define ABRAHAM_SINGLETON_H
+#ifndef ABRAHAM_SINGLETON_HPP
+#define ABRAHAM_SINGLETON_HPP
 
 
 namespace abraham {
@@ -46,4 +46,4 @@ namespace abraham {
     };
 }
 
-#endif //ABRAHAM_SINGLETON_H
+#endif //ABRAHAM_SINGLETON_HPP

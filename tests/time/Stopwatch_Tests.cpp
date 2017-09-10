@@ -3,7 +3,7 @@
 //
 
 #include "gtest/gtest.h"
-#include "abraham/time/Stopwatch.h"
+#include "Stopwatch.hpp"
 #include <thread>
 
 using namespace abraham;
