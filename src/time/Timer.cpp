@@ -16,7 +16,7 @@ Timer::Timer() {
     this->_target = []() { return; };
 }
 
-Timer::Timer(const Interval &interval, const std::function<void(void)> &target) {
+Timer::Timer(const Interval& interval, const std::function<void(void)>& target) {
     this->_isAlive = false;
     this->_callCount = 0;
     this->_repeatCount = 1;
@@ -25,8 +25,8 @@ Timer::Timer(const Interval &interval, const std::function<void(void)> &target) 
     this->_target = target;
 }
 
-Timer::Timer(const Interval &interval, size_t repeat_count,
-             const std::function<void(void)> &target) {
+Timer::Timer(const Interval& interval, size_t repeat_count,
+             const std::function<void(void)>& target) {
     this->_isAlive = false;
     this->_callCount = 0;
     this->_repeatCount = repeat_count;
@@ -35,7 +35,7 @@ Timer::Timer(const Interval &interval, size_t repeat_count,
     this->_target = target;
 }
 
-Timer::Timer(time_t timepoint, const std::function<void(void)> &target) {
+Timer::Timer(time_t timepoint, const std::function<void(void)>& target) {
     this->_isAlive = false;
     this->_callCount = 0;
     this->_repeatCount = 1;
@@ -44,8 +44,8 @@ Timer::Timer(time_t timepoint, const std::function<void(void)> &target) {
     this->_target = target;
 }
 
-Timer::Timer(time_t timepoint, const Interval &interval, size_t repeat_count,
-             const std::function<void(void)> &target) {
+Timer::Timer(time_t timepoint, const Interval& interval, size_t repeat_count,
+             const std::function<void(void)>& target) {
     this->_isAlive = false;
     this->_callCount = 0;
     this->_repeatCount = repeat_count;
@@ -82,7 +82,7 @@ void Timer::setRepeatCount(size_t count) {
     this->_repeatCount = count;
 }
 
-void Timer::setInterval(const Interval &interval) {
+void Timer::setInterval(const Interval& interval) {
     this->_interval = interval.std_nanoseconds();
 }
 
@@ -90,7 +90,7 @@ void Timer::setTimePoint(time_t timepoint) {
     this->_timepoint = timepoint;
 }
 
-void Timer::setTarget(const std::function<void(void)> &target) {
+void Timer::setTarget(const std::function<void(void)>& target) {
     this->_target = target;
 }
 
@@ -101,8 +101,7 @@ void Timer::start(bool async) {
 
     if (async) {
         this->_thread = std::thread(&Timer::_run, this);
-    }
-    else {
+    } else {
         this->_run();
     }
 }

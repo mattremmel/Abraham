@@ -67,7 +67,7 @@ namespace abraham {
          * @param interval - A duration that determines the amount of time between calls to the target.
          * @param target - The function that's called when the Timer fires.
          */
-        Timer(const Interval &interval, const std::function<void(void)> &target);
+        Timer(const Interval& interval, const std::function<void(void)>& target);
 
         /**
          * Constructor that creates a Timer which runs the target at a set interval, for the number of times specified.
@@ -75,15 +75,15 @@ namespace abraham {
          * @param repeat_count - The number of times that the target should be called.
          * @param target - The function that's called when the Timer fires.
          */
-        Timer(const Interval &interval, size_t repeat_count,
-              const std::function<void(void)> &target);
+        Timer(const Interval& interval, size_t repeat_count,
+              const std::function<void(void)>& target);
 
         /**
          * Constructor that creates a Timer which runs the target at the specified timepoint in the future.
          * @param timepoint - The point in time that the target should be executed.
          * @param target - The function that's called when the Timer fires.
          */
-        Timer(time_t timepoint, const std::function<void(void)> &target);
+        Timer(time_t timepoint, const std::function<void(void)>& target);
 
         /**
          * Constructor that creates a Timer which runs the target starting at the specified timepoint at a set interval, for the number of times specified.
@@ -92,8 +92,8 @@ namespace abraham {
          * @param repeat_count - The number of times that the target should be called.
          * @param target - The function that's called when the Timer fires.
          */
-        Timer(time_t timepoint, const Interval &interval, size_t repeat_count,
-              const std::function<void(void)> &target);
+        Timer(time_t timepoint, const Interval& interval, size_t repeat_count,
+              const std::function<void(void)>& target);
 
         /**
          * @return true if the Timer is running; false otherwise.
@@ -114,7 +114,7 @@ namespace abraham {
          * @return The time interval between calls to the target.
          */
         Interval getInterval() const;
-       
+
         /**
          * @return The point in time that the target should be executed.
          */
@@ -135,7 +135,7 @@ namespace abraham {
          * Sets the time interval between calls to the target.
          * @param interval - A duration that determines that amount of time between calls to the target.
          */
-        void setInterval(const Interval &interval);
+        void setInterval(const Interval& interval);
 
         /**
          * Sets the point in time that the target should be executed.
@@ -147,7 +147,7 @@ namespace abraham {
          * Sets the function that should be called when the Timer fires.
          * @param target - The function that's called when the Timer fires.
          */
-        void setTarget(const std::function<void(void)> &target);
+        void setTarget(const std::function<void(void)>& target);
 
         /**
          * Starts the Timer loop.

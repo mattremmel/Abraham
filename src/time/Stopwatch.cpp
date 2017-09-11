@@ -43,8 +43,7 @@ Interval Stopwatch::elapsedTime() const {
     if (this->_isRunning) {
         std::chrono::time_point<std::chrono::high_resolution_clock> now = std::chrono::high_resolution_clock::now();
         return Interval(std::chrono::duration_cast<std::chrono::nanoseconds>(now - this->_begin));
-    }
-    else {
+    } else {
         return Interval(std::chrono::duration_cast<std::chrono::nanoseconds>(this->_end - this->_begin));
     }
 }

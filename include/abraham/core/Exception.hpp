@@ -51,7 +51,7 @@ namespace abraham {
         /**
          * Constructor that allows a helpful message to be set.
          */
-        InvalidArgumentException(const std::string &message);
+        InvalidArgumentException(const std::string& message);
     };
 
     /**
@@ -67,7 +67,7 @@ namespace abraham {
         /**
          * Constructor that allows a helpful message to be set.
          */
-        InvalidValueException(const std::string &message);
+        InvalidValueException(const std::string& message);
     };
 
     /**

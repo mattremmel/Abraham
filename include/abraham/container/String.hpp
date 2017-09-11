@@ -37,89 +37,89 @@ namespace abraham {
          * Constructor that creates a String object from a C style string.
          * @param cstring - The C string that the String object is constructed from.
          */
-        String(const char *cstring);
+        String(const char* cstring);
 
         /**
          * Constructor that creates a String object from a std::string.
          * @param string - The std::string that the String object is constructed from.
          */
-        String(const std::string &string);
+        String(const std::string& string);
 
         /**
          * Constructor that creates a String object from another String object.
          * @param string - The String object that this String object is constructed from.
          */
-        String(const String &string);
+        String(const String& string);
 
         /**
          * Operator overload to access String characters using the '[ ]' operator.
          * @param index - The 0-based index of the character in the String.
          * @return - A char reference of the character at the provided index.
          */
-        char &operator[](size_t index);
+        char& operator[](size_t index);
 
         /**
          * Operator overload to set a new String value using the '=' operator.
          * @param string - The String that the new value will be set to.
          * @return A self reference.
          */
-        String &operator=(const String &string);
+        String& operator=(const String& string);
 
         /**
          * Operator overload to concatenate two String objects using the '+' operator.
          * @param string - The value to concatenate this String with.
          * @return A new String with the value with the concatenated value.
          */
-        const String operator+(const String &string) const;
+        const String operator+(const String& string) const;
 
         /**
          * Operator overload to concatenate this String with another one in place using the '+=' operator.
          * @param string - The value to concatenate this String with.
          * @return A self reference.
          */
-        String &operator+=(const String &string);
+        String& operator+=(const String& string);
 
         /**
          * Operator overload to check the equality of two String objects using the '==' operator.
          * @param string - The value to compare this String to.
          * @return true if the two String objects are equal in value; false otherwise.
          */
-        bool operator==(const String &string) const;
+        bool operator==(const String& string) const;
 
         /**
          * Operator overload to check the inequality of two String objects using the '!=' operator.
          * @param string - The value to compare this String to.
          * @return true if the two String objects are not equal in value; false otherwise.
          */
-        bool operator!=(const String &string) const;
+        bool operator!=(const String& string) const;
 
         /**
          * Operator overload to check the lexicographical order of two String objects using the '<' operator.
          * @param string - The value to compare this String to.
          * @return true if this String is lexicographically less than the provided String; false otherwise.
          */
-        bool operator<(const String &string) const;
+        bool operator<(const String& string) const;
 
         /**
          * Operator overload to check the lexicographical order of two String objects using the '>' operator.
          * @param string - The value to compare this String to.
          * @return true if this String is lexicographically greater than the provided String; false otherwise.
          */
-        bool operator>(const String &string) const;
+        bool operator>(const String& string) const;
 
         /**
          * Operator overload to check the lexicographical order of two String objects using the '<=' operator.
          * @param string - The value to compare this String to.
          * @return true if this String is lexicographically less than or equal to the provided String; false otherwise.
          */
-        bool operator<=(const String &string) const;
+        bool operator<=(const String& string) const;
 
         /**
          * Operator overload to check the lexicographical order of two String objects using the '>= operator.
          * @param string - The value to compare this String to.
          * @return true if this String is lexicographically greather than or equal to the provided String; false otherwise.
          */
-        bool operator>=(const String &string) const;
+        bool operator>=(const String& string) const;
 
         /**
          * @return The number of ASCII characters contained in the String.
@@ -138,45 +138,45 @@ namespace abraham {
          * @param index - The index to set the character value at.
          * @return A self reference.
          */
-        String &setCharacterAtIndex(const char c, size_t index);
+        String& setCharacterAtIndex(const char c, size_t index);
 
         /**
          * Sets a new value for the String.
          * @param string - The new value to set.
          * @return A self reference.
          */
-        String &setValue(const String &string);
+        String& setValue(const String& string);
 
         /**
          * Sets all upper case characters in the String to their lower case counterparts.
          * @return A self reference.
          */
-        String &toLowerCase();
+        String& toLowerCase();
 
         /**
          * Sets all lower case characters in the String to their upper case counterparts.
          * @return A self reference.
          */
-        String &toUpperCase();
+        String& toUpperCase();
 
         /**
          * Sets the first letter of each word to its upper case form, if it isn't already.
          * @return A self reference.
          */
-        String &toCapitalCase();
+        String& toCapitalCase();
 
         /**
          * Sets all characters to their respective lower or upper case counter part.
          * @return A self reference.
          */
-        String &swapCase();
+        String& swapCase();
 
         /**
          * Appends a String to the end of this String.
          * @param string - The String whose value with be appended.
          * @return A self reference.
          */
-        String &append(const String &string);
+        String& append(const String& string);
 
         /**
          * Retrieve a subsection of the String.
@@ -206,7 +206,7 @@ namespace abraham {
          * @param delimiter - The value the String should be split on.
          * @return A vector of String components.
          */
-        std::vector<String> split(const String &delimiter) const;
+        std::vector<String> split(const String& delimiter) const;
 
         /**
          * Inserts a String at the provided index.
@@ -214,34 +214,34 @@ namespace abraham {
          * @param index - The index where the value should be inserted.
          * @return A self reference.
          */
-        String &insert(const String &string, size_t index);
+        String& insert(const String& string, size_t index);
 
         /**
          * Trims the provided characters from both ends of the String.
          * @param characters - The characters that should be trimmed.
          * @return A self reference.
          */
-        String &trim(const String &characters = ASCII_WHITESPACE);
+        String& trim(const String& characters = ASCII_WHITESPACE);
 
         /**
          * Trims the provided characters from the beginning of the String.
          * @param characters - The characters that should be trimmed.
          * @return A self reference.
          */
-        String &trimLeading(const String &characters = ASCII_WHITESPACE);
+        String& trimLeading(const String& characters = ASCII_WHITESPACE);
 
         /**
          * Trims the provided characters from the end of the String.
          * @param characters - The characters that should be trimmed.
          * @return A self reference.
          */
-        String &trimTrailing(const String &characters = ASCII_WHITESPACE);
+        String& trimTrailing(const String& characters = ASCII_WHITESPACE);
 
         /**
          * Reverses the order of the characters in the String.
          * @return A self reference.
          */
-        String &reverse();
+        String& reverse();
 
         /**
          * Pads both ends of the String with the provided value, the provided number of times.
@@ -249,7 +249,7 @@ namespace abraham {
          * @param count - The number of times the value should added to each end.
          * @return A self reference.
          */
-        String &pad(const String &string, size_t count);
+        String& pad(const String& string, size_t count);
 
         /**
          * Pads the beginning of the String with the provided value, the provided number of times.
@@ -257,7 +257,7 @@ namespace abraham {
          * @param count - The number of times the value should be added to the beginning.
          * @return A self reference.
          */
-        String &padLeft(const String &string, size_t count);
+        String& padLeft(const String& string, size_t count);
 
         /**
          * Pads the end of the String with the provided value, the provided number of times.
@@ -265,7 +265,7 @@ namespace abraham {
          * @param count- The number of times that value should be added to the beginning.
          * @return A self reference.
          */
-        String &padRight(const String &string, size_t count);
+        String& padRight(const String& string, size_t count);
 
         /**
          * Replaces the first occurrence of a value, with another value.
@@ -273,14 +273,15 @@ namespace abraham {
          * @param new_string - The new value that should be set.
          * @return A self reference.
          */
-        String &replace(const String &old_string, const String &new_string);
+        String& replace(const String& old_string, const String& new_string);
+
         /**
          * Replaces the last occurrence of a value, with another value.
          * @param old_string - The current value that should be replaced.
          * @param new_string - The new value that should be set.
          * @return A self reference.
          */
-        String &replaceLast(const String &old_string, const String &new_string);
+        String& replaceLast(const String& old_string, const String& new_string);
 
         /**
          * Replaces all occurrences of a value, with another value.
@@ -288,28 +289,28 @@ namespace abraham {
          * @param new_string - The new value that should be set.
          * @return
          */
-        String &replaceAll(const String &old_string, const String &new_string);
+        String& replaceAll(const String& old_string, const String& new_string);
 
         /**
          * Removes the first occurrence of a value from the String.
          * @param string - The value that should be removed.
          * @return A self reference.
          */
-        String &remove(const String &string);
+        String& remove(const String& string);
 
         /**
          * Removes that last occurrence of a value from the String.
          * @param string - The value that should be removed.
          * @return A self reference.
          */
-        String &removeLast(const String &string);
+        String& removeLast(const String& string);
 
         /**
          * Removes all occurrences of a value from the String.
          * @param string - The value that should be removed.
          * @return A self reference.
          */
-        String &removeAll(const String &string);
+        String& removeAll(const String& string);
 
         /**
          * Removes a range of characters from the String.
@@ -317,28 +318,28 @@ namespace abraham {
          * @param to_index - The end index of the range that should be removed.
          * @return A self reference.
          */
-        String &removeRange(size_t from_index, size_t to_index);
+        String& removeRange(size_t from_index, size_t to_index);
 
         /**
          * Removes the provided characters from the String.
          * @param characters - The characters that should be removed.
          * @return A self reference.
          */
-        String &removeCharacters(const String &characters);
+        String& removeCharacters(const String& characters);
 
         /**
          * Determines if the provided value is present in the String.
          * @param string - The value to be found.
          * @return true if the value is present in the String; false otherwise.
          */
-        bool contains(const String &string) const;
+        bool contains(const String& string) const;
 
         /**
          * Returns the index of the first occurrence of the provided value.
          * @param string - The value to be found.
          * @return The index of the value. -1 if not found.
          */
-        size_t indexOf(const String &string) const;
+        size_t indexOf(const String& string) const;
 
         /**
          * Returns the index of the first occurrence of the provided value found after the specified index.
@@ -346,14 +347,14 @@ namespace abraham {
          * @param min_index - The index to start search from.
          * @return The index of the value. -1 if not found.
          */
-        size_t indexOf(const String &string, size_t min_index) const;
+        size_t indexOf(const String& string, size_t min_index) const;
 
         /**
          * Returns the index of the last occurrence of the provided value.
          * @param string - The value to be found.
          * @return The index of the value. -1 if not found.
          */
-        size_t indexOfLast(const String &string) const;
+        size_t indexOfLast(const String& string) const;
 
         /**
          * Returns the index of the last occurrence of the provided value found before the specified index.
@@ -361,7 +362,7 @@ namespace abraham {
          * @param max_index - The index where the search should stop.
          * @return The index of the value. -1 if not found.
          */
-        size_t indexOfLast(const String &string, size_t max_index) const;
+        size_t indexOfLast(const String& string, size_t max_index) const;
 
         /**
          * Checks the equality of two String objects.
@@ -369,7 +370,7 @@ namespace abraham {
          * @param case_sensitive - Whether the compare should be case sensitive. Default = true.
          * @return true if the two String objects are equal in value; false otherwise.
          */
-        bool isEqualTo(const String &string, bool case_sensitive = true) const;
+        bool isEqualTo(const String& string, bool case_sensitive = true) const;
 
         /**
          * Returns a value representing the lexicographical order of the String relative to another.
@@ -378,7 +379,7 @@ namespace abraham {
          * @return -1 if this String is lexicographically less than the other; 0 if they are equal; and 1 if
          * this String is lexicographically greater than the other.
          */
-        int compare(const String &string, bool case_sensitive = true) const;
+        int compare(const String& string, bool case_sensitive = true) const;
 
         /**
          * Get the integer value of the number represented in the String. An exception is thrown if the String value isn't valid.
@@ -449,7 +450,7 @@ namespace abraham {
         /**
          * @return The String value as a C style string.
          */
-        const char *c_string() const;
+        const char* c_string() const;
 
         /**
          * @return The String value as a std::string.

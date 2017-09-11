@@ -20,7 +20,11 @@ TEST(String, default_constructor) {
 TEST(String, c_str_constructor) {
     // Setup
     char* c_str = new char[5];
-    c_str[0] = 't'; c_str[1] = 'e'; c_str[2] = 's'; c_str[3] = 't'; c_str[4] = '\0';
+    c_str[0] = 't';
+    c_str[1] = 'e';
+    c_str[2] = 's';
+    c_str[3] = 't';
+    c_str[4] = '\0';
     String string = String(c_str);
 
     // Assertion
@@ -222,7 +226,7 @@ TEST(String, operator_less_self) {
     String string = String("test");
 
     // Assertions
-    EXPECT_FALSE(string < string);   
+    EXPECT_FALSE(string < string);
 }
 
 // Operator>

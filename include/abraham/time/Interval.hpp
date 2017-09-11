@@ -52,7 +52,7 @@ namespace abraham {
          * @param duration - The std::chrono::duration value.
          */
         template<class Rep, class Period>
-        Interval(const std::chrono::duration<Rep, Period> &duration) {
+        Interval(const std::chrono::duration<Rep, Period>& duration) {
             this->_nanoseconds = std::chrono::duration_cast<std::chrono::nanoseconds>(duration);
         };
 
@@ -61,28 +61,28 @@ namespace abraham {
          * @param interval - The Interval that the new value will be set to.
          * @return A self reference.
          */
-        Interval &operator=(const Interval &interval);
+        Interval& operator=(const Interval& interval);
 
         /**
          * Operator overload to add two Interval objects using the '+' operator.
          * @param interval - The value to add this Interval to.
          * @return A new Interval with the combined value.
          */
-        const Interval operator+(const Interval &interval) const;
+        const Interval operator+(const Interval& interval) const;
 
         /**
          * Operator overload to add subtract Interval objects using the '-' operator.
          * @param interval - The value to be subtracted from this Interval.
          * @return A new Interval with the subtracted value.
          */
-        const Interval operator-(const Interval &interval) const;
+        const Interval operator-(const Interval& interval) const;
 
         /**
          * Operator overload to add this Interval with another in place using '+=' operator.
          * @param interval - The value to add to this Interval.
          * @return A self reference.
          */
-        Interval &operator+=(const Interval &interval);
+        Interval& operator+=(const Interval& interval);
 
 
         /**
@@ -90,49 +90,49 @@ namespace abraham {
          * @param interval - The value to subtract from this Interval.
          * @return A self reference.
          */
-        Interval &operator-=(const Interval &interval);
+        Interval& operator-=(const Interval& interval);
 
         /**
          * Operator overload to check the equality of two Interval objects using the '==' operator.
          * @param interval - The value to compare this Interval to.
          * @return true if the two Interval objects are equal in value; false otherwise.
          */
-        bool operator==(const Interval &interval) const;
+        bool operator==(const Interval& interval) const;
 
         /**
          * Operator overload to check the inequality of two Interval objects using the '!=' operator.
          * @param interval - The value to compare this Interval to.
          * @return true if the two Interval objects are not equal in value; false otherwise.
          */
-        bool operator!=(const Interval &interval) const;
+        bool operator!=(const Interval& interval) const;
 
         /**
          * Operator overload to check if this Interval value is less than another using the '<' operator.
          * @param interval - The value to compare this Interval to.
          * @return true if this Interval is smaller in value than the provided Interval; false otherwise.
          */
-        bool operator<(const Interval &interval) const;
+        bool operator<(const Interval& interval) const;
 
         /**
          * Operator overload to check if this Interval value is greater than another using the '>' operator.
          * @param interval - The value to compare this Interval to.
          * @return true if this Interval is greater in value than the provided Interval; false otherwise.
          */
-        bool operator>(const Interval &interval) const;
+        bool operator>(const Interval& interval) const;
 
         /**
          * Operator overload to check if this Interval value is less than or equal to another using the '<=' operator.
          * @param interval - The value to compare this Interval to.
          * @return true if this Interval is less than or equal in value to the provided Interval; false otherwise.
          */
-        bool operator<=(const Interval &interval) const;
+        bool operator<=(const Interval& interval) const;
 
         /**
          * Operator overload to check if this Interval value is greater than or equal to another using the '>=' operator.
          * @param interval - The value to compare this Interval to.
          * @return true if this Interval is greater than or equal in value to the provided Interval; false otherwise.
          */
-        bool operator>=(const Interval &interval) const;
+        bool operator>=(const Interval& interval) const;
 
         /**
          * @return An Interval object representing a time interval of 0 nanoseconds.
@@ -191,7 +191,7 @@ namespace abraham {
          * @param duration - The std::chrono::duration value or literal.
          */
         template<class Rep, class Period>
-        void setInterval(const std::chrono::duration<Rep, Period> &duration) {
+        void setInterval(const std::chrono::duration<Rep, Period>& duration) {
             this->_nanoseconds = std::chrono::duration_cast<std::chrono::nanoseconds>(duration);
         };
 

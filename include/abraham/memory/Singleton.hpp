@@ -28,18 +28,18 @@ namespace abraham {
         /**
          * Disable assignment.
          */
-        Singleton &operator=(T&&) = delete;
+        Singleton& operator=(T&&) = delete;
 
         /**
          * Disable assignement.
          */
-        Singleton &operator=(const T&) = delete;
+        Singleton& operator=(const T&) = delete;
 
     public:
         /**
          * @return A shared instance of the templated type.
          */
-        static T &SharedInstance() {
+        static T& SharedInstance() {
             static T shared;
             return shared;
         }

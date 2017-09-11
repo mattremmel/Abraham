@@ -30,7 +30,11 @@ TEST(Array, size_constructor) {
 TEST(Array, size_constructor_populate) {
     // Setup
     Array<int> array = Array<int>(5);
-    array[0] = 0; array[1] = 1; array[2] = 2; array[3] = 3; array[4] = 4;
+    array[0] = 0;
+    array[1] = 1;
+    array[2] = 2;
+    array[3] = 3;
+    array[4] = 4;
     std::vector<int> expect = {0, 1, 2, 3, 4};
 
     // Assertion
@@ -132,7 +136,7 @@ TEST(Array, operator_assign_self_assignment) {
     // Setup
     Array<int> array = {1, 2, 3};
     array = array;
-    std::vector<int> expect = {1, 2 ,3};
+    std::vector<int> expect = {1, 2, 3};
 
     // Assertion
     EXPECT_EQ(expect, array.std_vector());

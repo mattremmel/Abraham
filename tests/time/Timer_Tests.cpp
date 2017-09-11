@@ -24,7 +24,7 @@ TEST(Timer, default_constructor) {
 
 TEST(Timer, interval_constructor) {
     // Setup
-    Timer t = Timer(1s, [](){});
+    Timer t = Timer(1s, []() {});
 
     // Assertion
     EXPECT_FALSE(t.isAlive());
@@ -36,7 +36,7 @@ TEST(Timer, interval_constructor) {
 
 TEST(Timer, repeat_constructor) {
     // Setup
-    Timer t = Timer(1s, 5, [](){});
+    Timer t = Timer(1s, 5, []() {});
 
     // Assertion
     EXPECT_FALSE(t.isAlive());
@@ -48,7 +48,7 @@ TEST(Timer, repeat_constructor) {
 
 TEST(Timer, timepoint_constructor) {
     // Setup
-    Timer t = Timer(12345, [](){});
+    Timer t = Timer(12345, []() {});
 
     // Assertion
     EXPECT_FALSE(t.isAlive());
@@ -93,7 +93,7 @@ TEST(Timer, set_timepoint) {
 
 TEST(Timer, set_target) {
     // Setup
-    Timer t = Timer(1ms, [](){});
+    Timer t = Timer(1ms, []() {});
     int i = 0;
     auto target = [&i]() { i = 5; };
     t.setTarget(target);
@@ -110,7 +110,7 @@ TEST(Timer, set_target) {
 TEST(Timer, started_sync) {
     // Setup
     int i = 0;
-    Timer t = Timer(1ms, [&i](){
+    Timer t = Timer(1ms, [&i]() {
         i = 5;
     });
 
@@ -124,7 +124,7 @@ TEST(Timer, started_sync) {
 TEST(Timer, started_async) {
     // Setup
     int i = 0;
-    Timer t = Timer(1ms, [&i](){
+    Timer t = Timer(1ms, [&i]() {
         i = 5;
     });
 
@@ -141,7 +141,7 @@ TEST(Timer, started_async) {
 TEST(Timer, did_repeat_five_sync) {
     // Setup
     int i = 0;
-    Timer t = Timer(1ms, 5, [&i](){
+    Timer t = Timer(1ms, 5, [&i]() {
         ++i;
     });
 
@@ -155,7 +155,7 @@ TEST(Timer, did_repeat_five_sync) {
 TEST(Timer, did_repeat_five_async) {
     // Setup
     int i = 0;
-    Timer t = Timer(1ms, 5, [&i](){
+    Timer t = Timer(1ms, 5, [&i]() {
         ++i;
     });
 
@@ -172,7 +172,7 @@ TEST(Timer, did_repeat_five_async) {
 TEST(Timer, stopped_early_sync) {
     // Setup
     int i = 0;
-    Timer t = Timer(1ms, 5, [&i, &t](){
+    Timer t = Timer(1ms, 5, [&i, &t]() {
         ++i;
         if (i == 3) { t.stop(); }
     });
@@ -187,7 +187,7 @@ TEST(Timer, stopped_early_sync) {
 TEST(Timer, stopped_early_async) {
     // Setup
     int i = 0;
-    Timer t = Timer(1ms, 5, [&i, &t](){
+    Timer t = Timer(1ms, 5, [&i, &t]() {
         ++i;
         if (i == 3) { t.stop(); }
     });

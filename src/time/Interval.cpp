@@ -15,54 +15,54 @@ Interval::Interval(size_t value, TimeScale scale) {
     this->setInterval(value, scale);
 }
 
-Interval& Interval::operator=(const Interval &duration) {
+Interval& Interval::operator=(const Interval& duration) {
     this->_nanoseconds = duration._nanoseconds;
     return *this;
 }
 
-const Interval Interval::operator+(const Interval &duration) const {
+const Interval Interval::operator+(const Interval& duration) const {
     Interval d = Interval();
     d._nanoseconds = this->_nanoseconds + duration._nanoseconds;
     return d;
 }
 
-const Interval Interval::operator-(const Interval &duration) const {
+const Interval Interval::operator-(const Interval& duration) const {
     Interval d = Interval();
     d._nanoseconds = this->_nanoseconds - duration._nanoseconds;
     return d;
 }
 
-Interval& Interval::operator+=(const Interval &duration) {
+Interval& Interval::operator+=(const Interval& duration) {
     this->_nanoseconds += duration._nanoseconds;
     return *this;
 }
 
-Interval& Interval::operator-=(const Interval &duration) {
+Interval& Interval::operator-=(const Interval& duration) {
     this->_nanoseconds -= duration._nanoseconds;
     return *this;
 }
 
-bool Interval::operator==(const Interval &duration) const {
+bool Interval::operator==(const Interval& duration) const {
     return this->_nanoseconds == duration._nanoseconds;
 }
 
-bool Interval::operator!=(const Interval &duration) const {
+bool Interval::operator!=(const Interval& duration) const {
     return this->_nanoseconds != duration._nanoseconds;
 }
 
-bool Interval::operator<(const Interval &duration) const {
+bool Interval::operator<(const Interval& duration) const {
     return this->_nanoseconds < duration._nanoseconds;
 }
 
-bool Interval::operator>(const Interval &duration) const {
+bool Interval::operator>(const Interval& duration) const {
     return this->_nanoseconds > duration._nanoseconds;
 }
 
-bool Interval::operator<=(const Interval &duration) const {
+bool Interval::operator<=(const Interval& duration) const {
     return this->_nanoseconds <= duration._nanoseconds;
 }
 
-bool Interval::operator>=(const Interval &duration) const {
+bool Interval::operator>=(const Interval& duration) const {
     return this->_nanoseconds >= duration._nanoseconds;
 }
 
