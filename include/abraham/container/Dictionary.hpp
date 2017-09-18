@@ -55,7 +55,7 @@ namespace abraham {
 
         /**
          * Constructor that creates a Dictionary from a std::map.
-         * @param map - A std::map to create the Dictionary from.
+         * @param map - The std::map to create the Dictionary from.
          */
         Dictionary<K, V>(const std::map<K, V>& map);
 
