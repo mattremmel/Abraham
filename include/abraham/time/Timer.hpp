@@ -27,29 +27,29 @@ namespace abraham {
         volatile bool _isAlive;
 
         /**
-         * A counter used to keep track of how many times the target has been called.
+         * A counter used to keep track of how many times the callback has been called.
          */
         volatile size_t _callCount;
 
         /**
-         * The number of times the target should be called.
+         * The number of times the callback should be called.
          */
         size_t _repeatCount;
 
         /**
-         * The time interval in between calls to the target.
+         * The time interval in between calls to the callback.
          */
         std::chrono::nanoseconds _interval;
 
         /**
-         * The point in time that the target should be executed.
+         * The point in time that the callback should be executed.
          */
         time_t _timepoint;
 
         /**
          * The function that should be called when the Timer fires.
          */
-        std::function<void(void)> _target;
+        std::function<void(void)> _callback;
 
         /**
          * The function that starts the Timer loop.
@@ -63,37 +63,37 @@ namespace abraham {
         Timer();
 
         /**
-         * Basic constructor that creates a Timer which runs the target after a set interval.
-         * @param interval - A duration that determines the amount of time between calls to the target.
-         * @param target - The function that's called when the Timer fires.
+         * Basic constructor that creates a Timer which runs the callback after a set interval.
+         * @param interval - A duration that determines the amount of time between calls to the callback.
+         * @param callback - The function that's called when the Timer fires.
          */
-        Timer(const Interval& interval, const std::function<void(void)>& target);
+        Timer(const Interval& interval, const std::function<void(void)>& callback);
 
         /**
-         * Constructor that creates a Timer which runs the target at a set interval, for the number of times specified.
-         * @param interval - A duration that determines the amount of time between calls to the target.
-         * @param repeat_count - The number of times that the target should be called.
-         * @param target - The function that's called when the Timer fires.
+         * Constructor that creates a Timer which runs the callback at a set interval, for the number of times specified.
+         * @param interval - A duration that determines the amount of time between calls to the callback.
+         * @param repeat_count - The number of times that the callback should be called.
+         * @param callback - The function that's called when the Timer fires.
          */
         Timer(const Interval& interval, size_t repeat_count,
-              const std::function<void(void)>& target);
+              const std::function<void(void)>& callback);
 
         /**
-         * Constructor that creates a Timer which runs the target at the specified timepoint in the future.
-         * @param timepoint - The point in time that the target should be executed.
-         * @param target - The function that's called when the Timer fires.
+         * Constructor that creates a Timer which runs the callback at the specified timepoint in the future.
+         * @param timepoint - The point in time that the callback should be executed.
+         * @param callback - The function that's called when the Timer fires.
          */
-        Timer(time_t timepoint, const std::function<void(void)>& target);
+        Timer(time_t timepoint, const std::function<void(void)>& callback);
 
         /**
-         * Constructor that creates a Timer which runs the target starting at the specified timepoint at a set interval, for the number of times specified.
-         * @param timepoint - The point in time that the target should be executed.
-         * @param interval - A duration that determines the amount of time between calls to the target.
-         * @param repeat_count - The number of times that the target should be called.
-         * @param target - The function that's called when the Timer fires.
+         * Constructor that creates a Timer which runs the callback starting at the specified timepoint at a set interval, for the number of times specified.
+         * @param timepoint - The point in time that the callback should be executed.
+         * @param interval - A duration that determines the amount of time between calls to the callback.
+         * @param repeat_count - The number of times that the callback should be called.
+         * @param callback - The function that's called when the Timer fires.
          */
         Timer(time_t timepoint, const Interval& interval, size_t repeat_count,
-              const std::function<void(void)>& target);
+              const std::function<void(void)>& callback);
 
         /**
          * @return true if the Timer is running; false otherwise.
@@ -101,22 +101,22 @@ namespace abraham {
         bool isAlive() const;
 
         /**
-         * @return The number of times that the target has been called.
+         * @return The number of times that the callback has been called.
          */
         size_t getCallCount() const;
 
         /**
-         * @return The number of times that the target should be called.
+         * @return The number of times that the callback should be called.
          */
         size_t getRepeatCount() const;
 
         /**
-         * @return The time interval between calls to the target.
+         * @return The time interval between calls to the callback.
          */
         Interval getInterval() const;
 
         /**
-         * @return The point in time that the target should be executed.
+         * @return The point in time that the callback should be executed.
          */
         time_t getTimePoint() const;
 
@@ -126,28 +126,28 @@ namespace abraham {
         std::function<void(void)> getTarget() const;
 
         /**
-         * Sets the number of times that the target should be called.
-         * @param count - The number of times that the target should be called.
+         * Sets the number of times that the callback should be called.
+         * @param count - The number of times that the callback should be called.
          */
         void setRepeatCount(size_t count);
 
         /**
-         * Sets the time interval between calls to the target.
-         * @param interval - A duration that determines that amount of time between calls to the target.
+         * Sets the time interval between calls to the callback.
+         * @param interval - A duration that determines that amount of time between calls to the callback.
          */
         void setInterval(const Interval& interval);
 
         /**
-         * Sets the point in time that the target should be executed.
-         * @param timepoint - The point in time that the target should be executed.
+         * Sets the point in time that the callback should be executed.
+         * @param timepoint - The point in time that the callback should be executed.
          */
         void setTimePoint(time_t timepoint);
 
         /**
          * Sets the function that should be called when the Timer fires.
-         * @param target - The function that's called when the Timer fires.
+         * @param callback - The function that's called when the Timer fires.
          */
-        void setTarget(const std::function<void(void)>& target);
+        void setTarget(const std::function<void(void)>& callback);
 
         /**
          * Starts the Timer loop.
