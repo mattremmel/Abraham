@@ -37,11 +37,12 @@ set(HEADERS ${HEADERS_CONTAINER} ${HEADERS_CORE} ${HEADERS_MEMORY} ${HEADERS_TIM
 ###############
 
 set(SOURCE_CORE
-        src/core/Object.cpp
         src/core/Exception.cpp
+        src/core/Object.cpp
         )
 set(SOURCE_CONTAINER
         src/container/Array.cpp
+        src/container/Dictionary.cpp
         src/container/String.cpp
         )
 set(SOURCE_MEMORY
@@ -117,6 +118,7 @@ set(TEST_CORE
         )
 set(TEST_CONTAINER
         tests/container/Array_Tests.cpp
+        tests/container/Dictionary_Tests.cpp
         tests/container/String_Tests.cpp
         )
 set(TEST_MEMORY
