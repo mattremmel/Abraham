@@ -43,6 +43,7 @@ set(SOURCE_CORE
 set(SOURCE_CONTAINER
         src/container/Array.cpp
         src/container/Dictionary.cpp
+        src/container/Queue.cpp
         src/container/Stack.cpp
         src/container/String.cpp
         )
@@ -120,6 +121,7 @@ set(TEST_CORE
 set(TEST_CONTAINER
         tests/container/Array_Tests.cpp
         tests/container/Dictionary_Tests.cpp
+        tests/container/Queue_Tests.cpp
         tests/container/Stack_Tests.cpp
         tests/container/String_Tests.cpp
         )
