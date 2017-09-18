@@ -1436,3 +1436,16 @@ TEST(String, std_string) {
     EXPECT_STREQ("test", std_str.c_str());
 }
 
+// Iterator
+
+TEST(String, range_loop) {
+    // Setup
+    String string = String("test");
+    std::string std_str = "";
+    for (auto c : string) {
+        std_str += c;
+    }
+
+    // Assertion
+    EXPECT_STREQ("test", std_str.c_str());
+}

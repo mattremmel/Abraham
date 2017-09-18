@@ -13,9 +13,16 @@
 
 namespace abraham {
 
+    /**
+     * A wrapper around std::vector that provides more convenient and higher level functions.
+     * @tparam T - The type of the Array.
+     */
     template<typename T>
     class Array {
     protected:
+        /**
+         * The internal std::vector object that this class wraps.
+         */
         std::vector<T> _data;
 
     public:
@@ -32,13 +39,13 @@ namespace abraham {
 
         /**
          * Constructor that creates an Array from an initialization list.
-         * @param i_list - List of objects to initialize Array with.
+         * @param i_list - List of objects to initialize the Array with.
          */
         Array<T>(std::initializer_list<T> i_list);
 
         /**
-         * Constructor that creates an Array from an std::vector.
-         * @param vector - An std::vector to create an Array from.
+         * Constructor that creates an Array from a std::vector.
+         * @param vector - An std::vector to create the Array from.
          */
         Array<T>(const std::vector<T>& vector);
 
@@ -57,7 +64,7 @@ namespace abraham {
         /**
          * Operator overload to access Array elements using the '[ ]' operator.
          * @param index - The 0-based index of the element in the Array.
-         * @return The element at the provided index.
+         * @return A reference to the element at the provided index.
          */
         T& operator[](size_t index);
 
@@ -345,7 +352,35 @@ namespace abraham {
          */
         std::vector<T> std_vector() const;
 
-        // TODO: Iterator
+        /**
+         * @return std::vector iterator.
+         */
+        typename std::vector<T>::iterator begin();
+
+        /**
+         * @return std::vector iterator.
+         */
+        typename std::vector<T>::iterator end();
+
+        /**
+         * @return std::vector const iterator.
+         */
+        typename std::vector<T>::const_iterator begin() const;
+
+        /**
+         * @return std::vector const iterator.
+         */
+        typename std::vector<T>::const_iterator end() const;
+
+        /**
+         * @return std::vector const iterator.
+         */
+        typename std::vector<T>::const_iterator cbegin() const;
+
+        /**
+         * @return std::vector const iterator.
+         */
+        typename std::vector<T>::const_iterator cend() const;
 
         /**
          * Value representing a non-existent index.
@@ -767,6 +802,36 @@ namespace abraham {
     template<typename T>
     std::vector<T> Array<T>::std_vector() const {
         return this->_data;
+    }
+
+    template<typename T>
+    typename std::vector<T>::iterator Array<T>::begin() {
+        return this->_data.begin();
+    }
+
+    template<typename T>
+    typename std::vector<T>::iterator Array<T>::end() {
+        return this->_data.end();
+    }
+
+    template<typename T>
+    typename std::vector<T>::const_iterator Array<T>::begin() const {
+        return this->_data.begin();
+    }
+
+    template<typename T>
+    typename std::vector<T>::const_iterator Array<T>::end() const {
+        return this->_data.end();
+    }
+
+    template<typename T>
+    typename std::vector<T>::const_iterator Array<T>::cbegin() const {
+        return this->_data.cbegin();
+    }
+
+    template<typename T>
+    typename std::vector<T>::const_iterator Array<T>::cend() const {
+        return this->_data.cend();
     }
 
     template<typename T>

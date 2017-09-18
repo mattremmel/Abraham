@@ -99,6 +99,8 @@ String& String::setCharacterAtIndex(const char c, size_t index) {
     } else {
         throw OutOfBoundsException(index);
     }
+
+    return *this;
 }
 
 String& String::setValue(const String& string) {
@@ -507,6 +509,30 @@ const char* String::c_string() const {
 
 std::string String::std_string() const {
     return this->_data;
+}
+
+std::string::iterator String::begin() {
+    return this->_data.begin();
+}
+
+std::string::iterator String::end() {
+    return this->_data.end();
+}
+
+std::string::const_iterator String::begin() const {
+    return this->_data.begin();
+}
+
+std::string::const_iterator String::end() const {
+    return this->_data.end();
+}
+
+std::string::const_iterator String::cbegin() const {
+    return this->_data.cbegin();
+}
+
+std::string::const_iterator String::cend() const {
+    return this->_data.cend();
 }
 
 const size_t String::NO_INDEX = -1;

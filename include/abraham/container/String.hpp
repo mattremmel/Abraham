@@ -17,7 +17,7 @@ namespace abraham {
     class String {
     protected:
         /**
-         * The internal std::string object that this Class wraps.
+         * The internal std::string object that this class wraps.
          */
         std::string _data;
 
@@ -456,6 +456,36 @@ namespace abraham {
          * @return The String value as a std::string.
          */
         std::string std_string() const;
+
+        /**
+         * @return std::string iterator.
+         */
+        std::string::iterator begin();
+
+        /**
+         * @return std::string iterator.
+         */
+        std::string::iterator end();
+
+        /**
+         * @return std::string const iterator.
+         */
+        std::string::const_iterator begin() const;
+
+        /**
+         * @return std::string const iterator.
+         */
+        std::string::const_iterator end() const;
+
+        /**
+         * @return std::string const iterator.
+         */
+        std::string::const_iterator cbegin() const;
+
+        /**
+         * @return std::string const iterator.
+         */
+        std::string::const_iterator cend() const;
 
         /**
          * Value representing a non-existent index.

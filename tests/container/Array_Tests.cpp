@@ -1015,3 +1015,17 @@ TEST(Array, std_vector) {
     // Assertion
     EXPECT_EQ(expect, vector);
 }
+
+// Iterator
+
+TEST(Array, range_loop) {
+    // Setup
+    Array<int> array = {1, 2, 3};
+    int sum = 0;
+    for (auto i : array) {
+        sum += i;
+    }
+
+    // Assertion
+    EXPECT_EQ(6, sum);
+}
