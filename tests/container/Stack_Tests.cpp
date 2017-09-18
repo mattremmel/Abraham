@@ -24,11 +24,11 @@ TEST(Stack, default_constructor) {
 TEST(Stack, push) {
     // Setup
     Stack<int> stack = Stack<int>();
-    stack.push(10);
+    stack.push(1).push(2);
 
     // Assertion
-    EXPECT_EQ(1, stack.size());
-    EXPECT_EQ(10, stack.peak());
+    EXPECT_EQ(2, stack.size());
+    EXPECT_EQ(2, stack.peak());
 }
 
 // Pop

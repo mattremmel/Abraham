@@ -30,6 +30,52 @@ namespace abraham {
         Stack<T>();
 
         /**
+         * Constructor that creates a Stack from a std::stack.
+         * @param std_stack - The std::stack to create this Stack from.
+         */
+        Stack<T>(const std::stack<T>& std_stack);
+
+        /**
+         * Constructor that creates a Stack from another Stack object.
+         * @param stack - The Stack object that this Stack is created from.
+         */
+        Stack<T>(const Stack<T>& stack);
+
+        /**
+         * Move constructor.
+         * @param stack - The Stack to move to this Stack.
+         */
+        Stack<T>(const Stack<T>&& stack);
+
+        /**
+         * Operator overload to set new Stack contents using the '=' operator.
+         * @param stack - The Stack object to set the new contents from.
+         * @return A self reference.
+         */
+        Stack<T>& operator=(const Stack<T>& stack);
+
+        /**
+         * Operator overload to set new Stack contents by moving.
+         * @param stack - The Stack object to set the new contents from.
+         * @return A self reference.
+         */
+        Stack<T>& operator=(const Stack<T>&& stack);
+
+        /**
+         * Operator overload to check the equality of two Stack objects using the '==' operator.
+         * @param stack - The Stack object to compare this Stack to.
+         * @return true if the contents of the Stack objects are equal in value; false otherwise.
+         */
+        bool operator==(const Stack<T>& stack);
+
+        /**
+         * Operator overload to check the inequality of two Stack objects using the '!=' operator.
+         * @param stack - The Stack object to compare this Stack to.
+         * @return true if the contents of the Stack objects are not equal in value; false otherwise.
+         */
+        bool operator!=(const Stack<T>& stack);
+
+        /**
          * Pushes a new object onto the Stack.
          * @param object - The object to push onto the Stack.
          * @return A self reference.
@@ -76,6 +122,41 @@ namespace abraham {
     template<typename T>
     Stack<T>::Stack() {
         this->_data = std::stack<T>();
+    }
+
+    template<typename T>
+    Stack<T>::Stack(const Stack<T>& stack) {
+        this->_data = stack._data;
+    }
+
+    template<typename T>
+    Stack<T>::Stack(const Stack<T>&& stack) {
+        this->_data = stack._data;
+    }
+
+    template<typename T>
+    Stack<T>::Stack(const std::stack<T>& std_stack) {
+        this->_data = std_stack;
+    }
+
+    template<typename T>
+    Stack<T>& Stack<T>::operator=(const Stack<T>& stack) {
+        this->_data = stack._data;
+    }
+
+    template<typename T>
+    Stack<T>& Stack<T>::operator=(const Stack<T>&& stack) {
+        this->_data = stack._data;
+    }
+
+    template<typename T>
+    bool Stack<T>::operator==(const Stack<T>& stack) {
+        this->_data == stack._data;
+    }
+
+    template<typename T>
+    bool Stack<T>::operator!=(const Stack<T>& stack) {
+        this->_data = stack._data;
     }
 
     template<typename T>
