@@ -31,13 +31,13 @@ namespace abraham {
         Singleton& operator=(T&&) = delete;
 
         /**
-         * Disable assignement.
+         * Disable assignment.
          */
         Singleton& operator=(const T&) = delete;
 
     public:
         /**
-         * @return A shared instance of the templated type.
+         * @return A shared instance of the template type.
          */
         static T& SharedInstance() {
             static T shared;
