@@ -28,6 +28,7 @@ set(COVERAGE_TARGET abraham-coverage)
 set(HEADERS_CONTAINER include/abraham/container)
 set(HEADERS_CORE include/abraham/core)
 set(HEADERS_MEMORY include/abraham/memory)
+set(HEADERS_SYSTEM include/abraham/system)
 set(HEADERS_TIME include/abraham/time)
 set(HEADERS ${HEADERS_CONTAINER} ${HEADERS_CORE} ${HEADERS_MEMORY} ${HEADERS_TIME})
 
@@ -50,12 +51,22 @@ set(SOURCE_CONTAINER
 set(SOURCE_MEMORY
         src/memory/Singleton.cpp
         )
+set(SOURCE_SYSTEM
+        src/system/TerminalUtil.cpp
+        )
 set(SOURCE_TIME
         src/time/Interval.cpp
         src/time/Stopwatch.cpp
         src/time/Timer.cpp
         )
 set(SOURCE_ALL ${SOURCE_CORE} ${SOURCE_CONTAINER} ${SOURCE_MEMORY} ${SOURCE_TIME})
+
+###############
+# Libraries
+###############
+
+set(RLUTIL_HEADERS lib/rlutil)
+set(LIBRARY_HEADERS ${RLUTIL_HEADERS})
 
 
 ###############
@@ -145,6 +156,7 @@ set(GMOCK ${GMOCK_SOURCE} ${GMOCK_HEADERS})
 ###############
 
 include_directories(${HEADERS} ${GMOCK_HEADERS})
+include_directories(${HEADERS} ${LIBRARY_HEADERS} ${GMOCK_HEADERS})
 
 set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 add_library(${STATIC_TARGET} STATIC ${HEADERS} ${SOURCE_ALL})
