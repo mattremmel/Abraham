@@ -50,6 +50,7 @@ set(SOURCE_CONTAINER
         src/container/String.cpp
         )
 set(SOURCE_LOGGING
+        src/logging/DevelopmentLogger.cpp
         src/logging/Logger.cpp
         src/logging/MultiLogger.cpp
         src/logging/SimpleLogger.cpp
