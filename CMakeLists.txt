@@ -51,6 +51,7 @@ set(SOURCE_CONTAINER
         )
 set(SOURCE_LOGGING
         src/logging/Logger.cpp
+        src/logging/MultiLogger.cpp
         )
 set(SOURCE_MEMORY
         src/memory/Singleton.cpp
