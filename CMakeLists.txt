@@ -27,10 +27,11 @@ set(COVERAGE_TARGET abraham-coverage)
 
 set(HEADERS_CONTAINER include/abraham/container)
 set(HEADERS_CORE include/abraham/core)
+set(HEADERS_LOGGING include/abraham/logging)
 set(HEADERS_MEMORY include/abraham/memory)
 set(HEADERS_SYSTEM include/abraham/system)
 set(HEADERS_TIME include/abraham/time)
-set(HEADERS ${HEADERS_CONTAINER} ${HEADERS_CORE} ${HEADERS_MEMORY} ${HEADERS_TIME})
+set(HEADERS ${HEADERS_CONTAINER} ${HEADERS_CORE} ${HEADERS_LOGGING} ${HEADERS_MEMORY} ${HEADERS_SYSTEM} ${HEADERS_TIME})
 
 
 ###############
@@ -48,6 +49,9 @@ set(SOURCE_CONTAINER
         src/container/Stack.cpp
         src/container/String.cpp
         )
+set(SOURCE_LOGGING
+        src/logging/Logger.cpp
+        )
 set(SOURCE_MEMORY
         src/memory/Singleton.cpp
         )
@@ -59,7 +63,7 @@ set(SOURCE_TIME
         src/time/Stopwatch.cpp
         src/time/Timer.cpp
         )
-set(SOURCE_ALL ${SOURCE_CORE} ${SOURCE_CONTAINER} ${SOURCE_MEMORY} ${SOURCE_TIME})
+set(SOURCE_ALL ${SOURCE_CORE} ${SOURCE_CONTAINER} ${SOURCE_LOGGING} ${SOURCE_MEMORY} ${SOURCE_SYSTEM} ${SOURCE_TIME})
 
 ###############
 # Libraries
@@ -155,7 +159,6 @@ set(GMOCK ${GMOCK_SOURCE} ${GMOCK_HEADERS})
 # Build
 ###############
 
-include_directories(${HEADERS} ${GMOCK_HEADERS})
 include_directories(${HEADERS} ${LIBRARY_HEADERS} ${GMOCK_HEADERS})
 
 set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin)
