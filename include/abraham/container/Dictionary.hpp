@@ -75,7 +75,7 @@ namespace abraham {
          * Move constructor.
          * @param dictionary - The Dictionary to move to this Dictionary.
          */
-        Dictionary<K, V>(const Dictionary<K, V>&& dictionary);
+        Dictionary<K, V>(Dictionary<K, V>&& dictionary) noexcept;
 
         /**
          * Operator overload to access Dictionary values using the '[ ]' operator.
@@ -96,7 +96,7 @@ namespace abraham {
          * @param dictionary - The Dictionary object to set the new contents from.
          * @return A self reference.
          */
-        Dictionary<K, V>& operator=(const Dictionary<K, V>&& dictionary);
+        Dictionary<K, V>& operator=(Dictionary<K, V>&& dictionary) noexcept;
 
         /**
          * Operator overload to combine two Dictionary objects using the '+' operator.
@@ -315,7 +315,7 @@ namespace abraham {
     }
 
     template<typename K, typename V>
-    Dictionary<K, V>::Dictionary(const Dictionary<K, V>&& dictionary) {
+    Dictionary<K, V>::Dictionary(Dictionary<K, V>&& dictionary) noexcept {
         this->_data = dictionary._data;
         this->_hasDefault = dictionary._hasDefault;
         this->_defaultValue = dictionary._defaultValue;
@@ -340,15 +340,13 @@ namespace abraham {
     template<typename K, typename V>
     Dictionary<K, V>& Dictionary<K, V>::operator=(const Dictionary<K, V>& dictionary) {
         if (this == &dictionary) return *this;
-
         this->_data = dictionary._data;
         return *this;
     }
 
     template<typename K, typename V>
-    Dictionary<K, V>& Dictionary<K, V>::operator=(const Dictionary<K, V>&& dictionary) {
+    Dictionary<K, V>& Dictionary<K, V>::operator=(Dictionary<K, V>&& dictionary) noexcept {
         if (this == &dictionary) return *this;
-
         this->_data = dictionary._data;
         return *this;
     }

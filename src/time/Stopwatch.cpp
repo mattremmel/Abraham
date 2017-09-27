@@ -14,6 +14,30 @@ Stopwatch::Stopwatch() {
     this->_isRunning = false;
 }
 
+Stopwatch::Stopwatch(const Stopwatch& stopwatch) {
+    this->_begin = stopwatch._begin;
+    this->_end = stopwatch._end;
+}
+
+Stopwatch::Stopwatch(Stopwatch&& stopwatch) noexcept {
+    this->_begin = stopwatch._begin;
+    this->_end = stopwatch._end;
+}
+
+Stopwatch& Stopwatch::operator=(const Stopwatch& stopwatch) {
+    if (this == &stopwatch) return *this;
+    this->_begin = stopwatch._begin;
+    this->_end = stopwatch._end;
+    return *this;
+}
+
+Stopwatch& Stopwatch::operator=(Stopwatch&& stopwatch) noexcept {
+    if (this == &stopwatch) return *this;
+    this->_begin = stopwatch._begin;
+    this->_end = stopwatch._end;
+    return *this;
+}
+
 void Stopwatch::start() {
     this->_begin = std::chrono::high_resolution_clock::now();
     this->_isRunning = true;

@@ -57,11 +57,30 @@ namespace abraham {
         };
 
         /**
+         * Constructor that creates an Interval from another Interval object.
+         * @param interval - The Interval object that this Interval is created from.
+         */
+        Interval(const Interval& interval);
+
+        /**
+         * Move constructor.
+         * @param interval - The Interval to move to this Interval.
+         */
+        Interval(Interval&& interval) noexcept;
+
+        /**
          * Operator overload to set a new Interval value using the '=' operator.
          * @param interval - The Interval that the new value will be set to.
          * @return A self reference.
          */
         Interval& operator=(const Interval& interval);
+
+        /**
+         * Operator overload to set new value by moving.
+         * @param interval - The new interval value to set.
+         * @return A self reference.
+         */
+        Interval& operator=(Interval&& interval) noexcept;
 
         /**
          * Operator overload to add two Interval objects using the '+' operator.

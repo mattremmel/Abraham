@@ -59,7 +59,7 @@ namespace abraham {
          * Move constructor.
          * @param array - The Array to move to this Array.
          */
-        Array<T>(Array<T>&& array);
+        Array<T>(Array<T>&& array) noexcept;
 
         /**
          * Operator overload to access Array elements using the '[ ]' operator.
@@ -80,7 +80,7 @@ namespace abraham {
          * @param array - The Array object to set the new contents from.
          * @return A self reference.
          */
-        Array<T>& operator=(Array<T>&& array);
+        Array<T>& operator=(Array<T>&& array) noexcept;
 
         /**
          * Operator overload to concatenate two Array objects using the '+' operator.
@@ -418,7 +418,7 @@ namespace abraham {
     }
 
     template<typename T>
-    Array<T>::Array(Array<T>&& array) {
+    Array<T>::Array(Array<T>&& array) noexcept {
         this->_data = array._data;
     }
 
@@ -438,7 +438,8 @@ namespace abraham {
     }
 
     template<typename T>
-    Array<T>& Array<T>::operator=(Array<T>&& array) {
+    Array<T>& Array<T>::operator=(Array<T>&& array) noexcept {
+        if (this == &array) return *this;
         this->_data = array._data;
         return *this;
     }

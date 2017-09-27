@@ -38,6 +38,32 @@ namespace abraham {
         Stopwatch();
 
         /**
+         * Constructor that creates a Stopwatch from another Stopwatch object.
+         * @param stopwatch - The Stopwatch object that this Stopwatch is created from.
+         */
+        Stopwatch(const Stopwatch& stopwatch);
+
+        /**
+         * Move constructor.
+         * @param stopwatch - The Stopwatch to move to this Stopwatch.
+         */
+        Stopwatch(Stopwatch&& stopwatch) noexcept;
+
+        /**
+         * Operator overload to set new Stopwatch values using the '=' operator.
+         * @param stopwatch - The Stopwatch object to set the new values from.
+         * @return A self reference.
+         */
+        Stopwatch& operator=(const Stopwatch& stopwatch);
+
+        /**
+         * Operator overload to allow setting new values by moving.
+         * @param stopwatch - The Stopwatch object to set the new values from.
+         * @return A self reference.
+         */
+        Stopwatch& operator=(Stopwatch&& stopwatch) noexcept;
+
+        /**
          * Starts the Stopwatch.
          */
         void start();

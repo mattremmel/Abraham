@@ -45,7 +45,7 @@ namespace abraham {
          * Move constructor.
          * @param queue - The Queue to move to this Queue.
          */
-        Queue<T>(const Queue<T>&& queue);
+        Queue<T>(Queue<T>&& queue) noexcept;
 
         /**
          * Operator overload to set new Queue contents using the '=' operator.
@@ -59,7 +59,7 @@ namespace abraham {
          * @param queue - The Queue object to set the new contents from.
          * @return A self reference.
          */
-        Queue<T>& operator=(const Queue<T>&& queue);
+        Queue<T>& operator=(Queue<T>&& queue) noexcept;
 
         /**
          * Operator overload to check the equality of two Queue objects using the '==' operator.
@@ -136,7 +136,7 @@ namespace abraham {
     }
 
     template<typename T>
-    Queue<T>::Queue(const Queue<T>&& queue) {
+    Queue<T>::Queue(Queue<T>&& queue) noexcept {
         this->_data = queue._data;
     }
 
@@ -147,12 +147,14 @@ namespace abraham {
 
     template<typename T>
     Queue<T>& Queue<T>::operator=(const Queue<T>& queue) {
+        if (this == &queue) return *this;
         this->_data = queue._data;
         return *this;
     }
 
     template<typename T>
-    Queue<T>& Queue<T>::operator=(const Queue<T>&& queue) {
+    Queue<T>& Queue<T>::operator=(Queue<T>&& queue) noexcept {
+        if (this == &queue) return *this;
         this->_data = queue._data;
         return *this;
     }

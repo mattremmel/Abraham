@@ -28,6 +28,10 @@ String::String(const String& string) {
     this->_data = string._data;
 }
 
+String::String(String&& string) noexcept {
+    this->_data = string._data;
+}
+
 char& String::operator[](size_t index) {
     if (index < this->_data.length()) {
         return this->_data[index];
@@ -37,6 +41,12 @@ char& String::operator[](size_t index) {
 }
 
 String& String::operator=(const String& string) {
+    if (this == &string) return *this;
+    this->_data = string._data;
+    return *this;
+}
+
+String& String::operator=(String&& string) noexcept {
     if (this == &string) return *this;
     this->_data = string._data;
     return *this;

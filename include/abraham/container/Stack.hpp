@@ -45,7 +45,7 @@ namespace abraham {
          * Move constructor.
          * @param stack - The Stack to move to this Stack.
          */
-        Stack<T>(const Stack<T>&& stack);
+        Stack<T>(Stack<T>&& stack) noexcept;
 
         /**
          * Operator overload to set new Stack contents using the '=' operator.
@@ -59,7 +59,7 @@ namespace abraham {
          * @param stack - The Stack object to set the new contents from.
          * @return A self reference.
          */
-        Stack<T>& operator=(const Stack<T>&& stack);
+        Stack<T>& operator=(Stack<T>&& stack) noexcept;
 
         /**
          * Operator overload to check the equality of two Stack objects using the '==' operator.
@@ -130,7 +130,7 @@ namespace abraham {
     }
 
     template<typename T>
-    Stack<T>::Stack(const Stack<T>&& stack) {
+    Stack<T>::Stack(Stack<T>&& stack) noexcept {
         this->_data = stack._data;
     }
 
@@ -142,11 +142,14 @@ namespace abraham {
     template<typename T>
     Stack<T>& Stack<T>::operator=(const Stack<T>& stack) {
         this->_data = stack._data;
+        return *this;
     }
 
     template<typename T>
-    Stack<T>& Stack<T>::operator=(const Stack<T>&& stack) {
+    Stack<T>& Stack<T>::operator=(Stack<T>&& stack) noexcept {
+        if (this == & stack) return *this;
         this->_data = stack._data;
+        return *this;
     }
 
     template<typename T>

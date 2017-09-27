@@ -52,6 +52,12 @@ namespace abraham {
         String(const String& string);
 
         /**
+         * Move constructor.
+         * @param string - The String to move to this String.
+         */
+        String(String&& string) noexcept;
+
+        /**
          * Operator overload to access String characters using the '[ ]' operator.
          * @param index - The 0-based index of the character in the String.
          * @return - A char reference of the character at the provided index.
@@ -64,6 +70,13 @@ namespace abraham {
          * @return A self reference.
          */
         String& operator=(const String& string);
+
+        /**
+         * Operator overload to allow setting new contents by moving.
+         * @param string - The String to set the new contents from.
+         * @return A self reference.
+         */
+        String& operator=(String&& string) noexcept;
 
         /**
          * Operator overload to concatenate two String objects using the '+' operator.
