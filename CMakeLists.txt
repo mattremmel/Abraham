@@ -57,6 +57,7 @@ set(SOURCE_LOGGING
         )
 set(SOURCE_MEMORY
         src/memory/Singleton.cpp
+        src/memory/UniquePtr.cpp
         )
 set(SOURCE_SYSTEM
         src/system/TerminalUtil.cpp
@@ -67,6 +68,7 @@ set(SOURCE_TIME
         src/time/Timer.cpp
         )
 set(SOURCE_ALL ${SOURCE_CORE} ${SOURCE_CONTAINER} ${SOURCE_LOGGING} ${SOURCE_MEMORY} ${SOURCE_SYSTEM} ${SOURCE_TIME})
+
 
 ###############
 # Libraries
@@ -145,6 +147,7 @@ set(TEST_CONTAINER
         )
 set(TEST_MEMORY
         tests/memory/Singleton_Tests.cpp
+        tests/memory/UniquePtr_Tests.cpp
         )
 set(TEST_TIME
         tests/time/Interval_Tests.cpp
