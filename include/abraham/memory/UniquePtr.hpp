@@ -62,7 +62,7 @@ namespace abraham {
         UniquePtr<T>& operator=(const UniquePtr<T>& ptr) = delete;
 
         /**
-         * Operator overload to set new UniquePointer contents by moving.
+         * Operator overload to set new UniquePtr contents by moving.
          * @param ptr - The UniquePtr object to set the new contents from.
          * @return A self reference.
          */
@@ -90,7 +90,7 @@ namespace abraham {
         bool operator!=(const UniquePtr<T>& ptr) const;
 
         /**
-         * A bool conversion to support checking the contents of UniquePtr using 'if (unique_ptr) ...'
+         * A bool conversion to support checking the contents of a UniquePtr using 'if (unique_ptr) ...'
          * @return true if the managed object isn't null; false otherwise.
          */
         explicit operator bool() const noexcept {
@@ -99,20 +99,20 @@ namespace abraham {
 
         /**
          * Operator overload to return a reference to the managed object using the '*' operator.
-         * @return A reference to T.
+         * @return A reference to the managed object.
          */
         T& operator*() const;
 
         /**
          * Operator overload to access the managed object using the '->' operator.
-         * @return A pointer to T.
+         * @return A pointer to the managed object.
          */
         T* operator->() const;
 
         /**
          * Factory method to create a UniquePtr with a constructed object inside.
          * @param args - Constructor arguments for T. Can be empty.
-         * @return A UniquePtr with the constructed object inside.
+         * @return A UniquePtr with the newly constructed managed object inside.
          */
         template<typename... Args>
         static UniquePtr<T> make(Args&&... args);
