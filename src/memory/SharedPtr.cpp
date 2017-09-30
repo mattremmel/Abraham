@@ -3,3 +3,7 @@
 //
 
 #include "SharedPtr.hpp"
+
+/**
+ * The SharedPtr implementation is header only.
+ */

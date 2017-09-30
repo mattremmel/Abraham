@@ -58,6 +58,7 @@ set(SOURCE_LOGGING
         )
 set(SOURCE_MEMORY
         src/memory/Singleton.cpp
+        src/memory/SharedPtr.cpp
         src/memory/UniquePtr.cpp
         )
 set(SOURCE_SYSTEM
@@ -151,6 +152,7 @@ set(TEST_CONTAINER
         )
 set(TEST_MEMORY
         tests/memory/Singleton_Tests.cpp
+        tests/memory/SharedPtr_Tests.cpp
         tests/memory/UniquePtr_Tests.cpp
         )
 set(TEST_TIME
