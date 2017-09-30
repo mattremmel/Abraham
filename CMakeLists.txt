@@ -31,7 +31,8 @@ set(HEADERS_LOGGING include/abraham/logging)
 set(HEADERS_MEMORY include/abraham/memory)
 set(HEADERS_SYSTEM include/abraham/system)
 set(HEADERS_TIME include/abraham/time)
-set(HEADERS ${HEADERS_CONTAINER} ${HEADERS_CORE} ${HEADERS_LOGGING} ${HEADERS_MEMORY} ${HEADERS_SYSTEM} ${HEADERS_TIME})
+set(HEADERS_UTIL include/abraham/utilities)
+set(HEADERS ${HEADERS_CONTAINER} ${HEADERS_CORE} ${HEADERS_LOGGING} ${HEADERS_MEMORY} ${HEADERS_SYSTEM} ${HEADERS_TIME} ${HEADERS_UTIL})
 
 
 ###############
@@ -67,7 +68,10 @@ set(SOURCE_TIME
         src/time/Stopwatch.cpp
         src/time/Timer.cpp
         )
-set(SOURCE_ALL ${SOURCE_CORE} ${SOURCE_CONTAINER} ${SOURCE_LOGGING} ${SOURCE_MEMORY} ${SOURCE_SYSTEM} ${SOURCE_TIME})
+set(SOURCE_UTIL
+        src/utilities/ScopeGuard.cpp
+        )
+set(SOURCE_ALL ${SOURCE_CORE} ${SOURCE_CONTAINER} ${SOURCE_LOGGING} ${SOURCE_MEMORY} ${SOURCE_SYSTEM} ${SOURCE_TIME} ${SOURCE_UTIL})
 
 
 ###############
@@ -154,7 +158,10 @@ set(TEST_TIME
         tests/time/Stopwatch_Tests.cpp
         tests/time/Timer_Tests.cpp
         )
-set(TEST_ALL ${TEST_CORE} ${TEST_CONTAINER} ${TEST_MEMORY} ${TEST_TIME})
+set(TEST_UTIL
+        tests/utilities/ScopeGuard_Tests.cpp
+        )
+set(TEST_ALL ${TEST_CORE} ${TEST_CONTAINER} ${TEST_MEMORY} ${TEST_TIME} ${TEST_UTIL})
 
 set(GMOCK_SOURCE lib/gmock-1.8/gmock-gtest-all.cc lib/gmock-1.8/gmock-gtest-main.cc)
 set(GMOCK_HEADERS lib/gmock-1.8/)
