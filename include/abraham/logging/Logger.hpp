@@ -23,15 +23,15 @@
 /*
  * Macros for verbose log messages
  */
-#define log_trace(message)      Logger::sharedInstance()->trace(message, __FILENAME__, __FUNC_NAME__, __LINE__)
-#define log_debug(message)      Logger::sharedInstance()->debug(message, __FILENAME__, __FUNC_NAME__, __LINE__)
-#define log_info(message)       Logger::sharedInstance()->info(message, __FILENAME__, __FUNC_NAME__, __LINE__)
-#define log_notice(message)     Logger::sharedInstance()->notice(message, __FILENAME__, __FUNC_NAME__, __LINE__)
-#define log_warning(message)    Logger::sharedInstance()->warning(message, __FILENAME__, __FUNC_NAME__, __LINE__)
-#define log_error(message)      Logger::sharedInstance()->error(message, __FILENAME__, __FUNC_NAME__, __LINE__)
-#define log_critical(message)   Logger::sharedInstance()->critical(message, __FILENAME__, __FUNC_NAME__, __LINE__)
-#define log_alert(message)      Logger::sharedInstance()->alert(message, __FILENAME__, __FUNC_NAME__, __LINE__)
-#define log_fatal(message)      Logger::sharedInstance()->fatal(message, __FILENAME__, __FUNC_NAME__, __LINE__)
+#define log_trace(message)      abraham::Logger::sharedInstance()->trace(message, __FILENAME__, __FUNC_NAME__, __LINE__)
+#define log_debug(message)      abraham::Logger::sharedInstance()->debug(message, __FILENAME__, __FUNC_NAME__, __LINE__)
+#define log_info(message)       abraham::Logger::sharedInstance()->info(message, __FILENAME__, __FUNC_NAME__, __LINE__)
+#define log_notice(message)     abraham::Logger::sharedInstance()->notice(message, __FILENAME__, __FUNC_NAME__, __LINE__)
+#define log_warning(message)    abraham::Logger::sharedInstance()->warning(message, __FILENAME__, __FUNC_NAME__, __LINE__)
+#define log_error(message)      abraham::Logger::sharedInstance()->error(message, __FILENAME__, __FUNC_NAME__, __LINE__)
+#define log_critical(message)   abraham::Logger::sharedInstance()->critical(message, __FILENAME__, __FUNC_NAME__, __LINE__)
+#define log_alert(message)      abraham::Logger::sharedInstance()->alert(message, __FILENAME__, __FUNC_NAME__, __LINE__)
+#define log_fatal(message)      abraham::Logger::sharedInstance()->fatal(message, __FILENAME__, __FUNC_NAME__, __LINE__)
 
 namespace abraham {
 
