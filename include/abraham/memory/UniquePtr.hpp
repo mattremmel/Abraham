@@ -11,8 +11,8 @@
 namespace abraham {
 
     /**
-     * A wrapper around std::unique_pointer that provides more convenient and higher level functions.
-     * @tparam T - The pointer type take ownership of by the UniquePtr.
+     * A wrapper around std::unique_ptr that provides more convenient and higher level functions.
+     * @tparam T - The pointer type of the object to take ownership of by the UniquePtr.
      */
     template<typename T>
     class UniquePtr {
@@ -40,6 +40,11 @@ namespace abraham {
         UniquePtr(const UniquePtr<T>& ptr) = delete;
 
         /**
+         * Constructor to create a UniquePtr explicitly initialized to null.
+         */
+        UniquePtr(std::nullptr_t np);
+
+        /**
          * Move constructor.
          * @param ptr - The UniquePtr to move to this UniquePtr.
          */
@@ -54,14 +59,14 @@ namespace abraham {
         /**
          * Explicitly deleting copy assignment because UniquePtr cannot be copied.
          */
-        UniquePtr<T>& operator=(const UniquePtr& ptr) = delete;
+        UniquePtr<T>& operator=(const UniquePtr<T>& ptr) = delete;
 
         /**
          * Operator overload to set new UniquePointer contents by moving.
          * @param ptr - The UniquePtr object to set the new contents from.
          * @return A self reference.
          */
-        UniquePtr<T>& operator=(UniquePtr&& ptr) noexcept;
+        UniquePtr<T>& operator=(UniquePtr<T>&& ptr) noexcept;
 
         /**
          * Release any currently held object and set contents to null.
@@ -170,6 +175,11 @@ namespace abraham {
     }
 
     template<typename T>
+    UniquePtr<T>::UniquePtr(std::nullptr_t np) {
+        this->_data = nullptr;
+    }
+
+    template<typename T>
     UniquePtr<T>::UniquePtr(UniquePtr<T>&& ptr) noexcept {
         this->_data = std::move(ptr._data);
     }
@@ -204,7 +214,7 @@ namespace abraham {
 
     template<typename T>
     T& UniquePtr<T>::operator*() const {
-        return *(this->_data);
+        return this->_data.operator*();
     }
 
     template<typename T>
