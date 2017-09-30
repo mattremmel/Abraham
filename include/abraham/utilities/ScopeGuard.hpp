@@ -8,6 +8,7 @@
 #include <functional>
 #include <exception>
 
+
 // Macros for creating unique variable names using line numbers.
 #define SG_UNIQUE_NAME2(name, line) name ## line
 #define SG_UNIQUE_NAME(name, line) SG_UNIQUE_NAME2(name, line)
@@ -78,7 +79,7 @@ namespace abraham {
          * @param level - The level of the ScopeGuard.
          * @param target - The code to be run with the ScopeGuard executes.
          */
-        ScopeGuard(ScopeLevel level, F target) : _level(level), _target(target) { };
+        ScopeGuard(ScopeLevel level, F target) : _level(level), _target(target) {};
 
         /**
          * Destructor that will execute the target if the scope conditions are met.
