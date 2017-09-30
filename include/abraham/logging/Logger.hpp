@@ -6,7 +6,7 @@
 #define ABRAHAM_LOGGER_HPP
 
 #include "String.hpp"
-#include <memory>
+#include "SharedPtr.hpp"
 
 
 /*
@@ -114,7 +114,7 @@ namespace abraham {
         /**
          * The shared logging instance used with the "log_[level]" macros.
          */
-        static std::shared_ptr<Logger> _sharedInstance;
+        static SharedPtr<Logger> _sharedInstance;
 
         /**
          * The current log level of this logger.
@@ -126,13 +126,13 @@ namespace abraham {
          * The shared Logger instance which is of type Logger by default, but can be set to any other subclass using setSharedInstance().
          * @return The shared Logger instance.
          */
-        static std::shared_ptr<Logger> sharedInstance();
+        static SharedPtr<Logger> sharedInstance();
 
         /**
          * Set a new shared logging instance.
          * @param sharedInstance - Either a Logger or Logger subclass shared instance.
          */
-        static void setSharedInstance(const std::shared_ptr<Logger>& sharedInstance);
+        static void setSharedInstance(const SharedPtr<Logger>& sharedInstance);
 
         /**
          * Default constructor that creates a standard Logger with log level set to 'all' by default.
@@ -147,7 +147,7 @@ namespace abraham {
          * @param function - The function the log message originated from. Intended to be used only by 'log_trace' macro.
          * @param line - The line number the log message originated from. Intended to be used only by the 'log_trace' macro.
          */
-        void trace(const String& message, String file = "", String function = "", int line = 0) const;
+        void trace(const String& message, const String& file = "", const String& function = "", int line = 0) const;
 
         /**
          * Log a message with level 'debug'.
@@ -156,7 +156,7 @@ namespace abraham {
          * @param function - The function the log message originated from. Intended to be used only by 'log_debug' macro.
          * @param line - The line number the log message originated from. Intended to be used only by the 'log_debug' macro.
          */
-        void debug(const String& message, String file = "", String function = "", int line = 0) const;
+        void debug(const String& message, const String& file = "", const String& function = "", int line = 0) const;
 
         /**
          * Log a message with level 'info'.
@@ -165,7 +165,7 @@ namespace abraham {
          * @param function - The function the log message originated from. Intended to be used only by 'log_info' macro.
          * @param line - The line number the log message originated from. Intended to be used only by the 'log_info' macro.
          */
-        void info(const String& message, String file = "", String function = "", int line = 0) const;
+        void info(const String& message, const String& file = "", const String& function = "", int line = 0) const;
 
         /**
          * Log a message with level 'notice'.
@@ -174,7 +174,7 @@ namespace abraham {
          * @param function - The function the log message originated from. Intended to be used only by 'log_notice' macro.
          * @param line - The line number the log message originated from. Intended to be used only by the 'log_notice' macro.
          */
-        void notice(const String& message, String file = "", String function = "", int line = 0) const;
+        void notice(const String& message, const String& file = "", const String& function = "", int line = 0) const;
 
         /**
          * Log a message with level 'warning'.
@@ -183,7 +183,7 @@ namespace abraham {
          * @param function - The function the log message originated from. Intended to be used only by 'log_warning' macro.
          * @param line - The line number the log message originated from. Intended to be used only by the 'log_warning' macro.
          */
-        void warning(const String& message, String file = "", String function = "", int line = 0) const;
+        void warning(const String& message, const String& file = "", const String& function = "", int line = 0) const;
 
         /**
          * Log a message with level 'error'.
@@ -192,7 +192,7 @@ namespace abraham {
          * @param function - The function the log message originated from. Intended to be used only by 'log_error' macro.
          * @param line - The line number the log message originated from. Intended to be used only by the 'log_error' macro.
          */
-        void error(const String& message, String file = "", String function = "", int line = 0) const;
+        void error(const String& message, const String& file = "", const String& function = "", int line = 0) const;
 
         /**
          * Log a message with level 'critical'.
@@ -201,7 +201,7 @@ namespace abraham {
          * @param function - The function the log message originated from. Intended to be used only by 'log_critical' macro.
          * @param line - The line number the log message originated from. Intended to be used only by the 'log_critical' macro.
          */
-        void critical(const String& message, String file = "", String function = "", int line = 0) const;
+        void critical(const String& message, const String& file = "", const String& function = "", int line = 0) const;
 
         /**
          * Log a message with level 'alert'.
@@ -210,7 +210,7 @@ namespace abraham {
          * @param function - The function the log message originated from. Intended to be used only by 'log_alert' macro.
          * @param line - The line number the log message originated from. Intended to be used only by the 'log_alert' macro.
          */
-        void alert(const String& message, String file = "", String function = "", int line = 0) const;
+        void alert(const String& message, const String& file = "", const String& function = "", int line = 0) const;
 
         /**
          * Log a message with level 'fatal'.
@@ -219,7 +219,7 @@ namespace abraham {
          * @param function - The function the log message originated from. Intended to be used only by 'log_fatal' macro.
          * @param line - The line number the log message originated from. Intended to be used only by the 'log_fatal' macro.
          */
-        void fatal(const String& message, String file = "", String function = "", int line = 0) const;
+        void fatal(const String& message, const String& file = "", const String& function = "", int line = 0) const;
 
         /**
          * Generic function to log a message. Intended to be used only by other log functions.
@@ -229,7 +229,7 @@ namespace abraham {
          * @param function - The function the log message originated from. Intended to be used only by 'log_[level]' macro.
          * @param line - The line number the log message originated from. Intended to be used only by the 'log_[level]' macro.
          */
-        void log(LogLevel level, const String& message, String file = "", String function = "", int line = 0) const;
+        void log(LogLevel level, const String& message, const String& file = "", const String& function = "", int line = 0) const;
 
         /**
          * Determines if a log message of the provided level should be written.

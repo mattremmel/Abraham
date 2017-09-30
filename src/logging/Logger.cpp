@@ -4,25 +4,23 @@
 
 #include "Logger.hpp"
 #include <TerminalUtil.hpp>
-#include <cstdio>
 #include <ctime>
 #include <thread>
-#include <cstdlib>
 
 using namespace abraham;
 
 
-std::shared_ptr<Logger> Logger::_sharedInstance = nullptr;
+SharedPtr<Logger> Logger::_sharedInstance = nullptr;
 
-std::shared_ptr<Logger> Logger::sharedInstance() {
+SharedPtr<Logger> Logger::sharedInstance() {
     if (_sharedInstance == nullptr) {
-        _sharedInstance = std::make_shared<Logger>();
+        _sharedInstance = SharedPtr<Logger>::make();
     }
 
     return _sharedInstance;
 }
 
-void Logger::setSharedInstance(const std::shared_ptr<Logger>& logger) {
+void Logger::setSharedInstance(const SharedPtr<Logger>& logger) {
     _sharedInstance = logger;
 }
 
@@ -30,43 +28,43 @@ Logger::Logger(LogLevel level) {
     this->_logLevel = level;
 }
 
-void Logger::trace(const String& message, String file, String function, int line) const {
+void Logger::trace(const String& message, const String& file, const String& function, int line) const {
     this->log(LogLevel::trace, message, file, function, line);
 }
 
-void Logger::debug(const String& message, String file, String function, int line) const {
+void Logger::debug(const String& message, const String& file, const String& function, int line) const {
     this->log(LogLevel::debug, message, file, function, line);
 }
 
-void Logger::info(const String& message, String file, String function, int line) const {
+void Logger::info(const String& message, const String& file, const String& function, int line) const {
     this->log(LogLevel::info, message, file, function, line);
 }
 
-void Logger::notice(const String& message, String file, String function, int line) const {
+void Logger::notice(const String& message, const String& file, const String& function, int line) const {
     this->log(LogLevel::notice, message, file, function, line);
 }
 
-void Logger::warning(const String& message, String file, String function, int line) const {
+void Logger::warning(const String& message, const String& file, const String& function, int line) const {
     this->log(LogLevel::warning, message, file, function, line);
 }
 
-void Logger::error(const String& message, String file, String function, int line) const {
+void Logger::error(const String& message, const String& file, const String& function, int line) const {
     this->log(LogLevel::error, message, file, function, line);
 }
 
-void Logger::critical(const String& message, String file, String function, int line) const {
+void Logger::critical(const String& message, const String& file, const String& function, int line) const {
     this->log(LogLevel::critical, message, file, function, line);
 }
 
-void Logger::alert(const String& message, String file, String function, int line) const {
+void Logger::alert(const String& message, const String& file, const String& function, int line) const {
     this->log(LogLevel::alert, message, file, function, line);
 }
 
-void Logger::fatal(const String& message, String file, String function, int line) const {
+void Logger::fatal(const String& message, const String& file, const String& function, int line) const {
     this->log(LogLevel::fatal, message, file, function, line);
 }
 
-void Logger::log(LogLevel level, const String& message, String file, String function, int line) const {
+void Logger::log(LogLevel level, const String& message, const String& file, const String& function, int line) const {
     if (!(this->shouldWrite(level))) return;
 
     LogEntry entry;
