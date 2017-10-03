@@ -71,6 +71,7 @@ set(SOURCE_TIME
         )
 set(SOURCE_UTIL
         src/utilities/ScopeGuard.cpp
+        src/utilities/Types.cpp
         )
 set(SOURCE_ALL ${SOURCE_CORE} ${SOURCE_CONTAINER} ${SOURCE_LOGGING} ${SOURCE_MEMORY} ${SOURCE_SYSTEM} ${SOURCE_TIME} ${SOURCE_UTIL})
 
