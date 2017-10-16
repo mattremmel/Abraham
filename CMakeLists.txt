@@ -70,6 +70,7 @@ set(SOURCE_TIME
         src/time/Timer.cpp
         )
 set(SOURCE_UTIL
+        src/utilities/Random.cpp
         src/utilities/ScopeGuard.cpp
         src/utilities/Types.cpp
         )
@@ -162,6 +163,7 @@ set(TEST_TIME
         tests/time/Timer_Tests.cpp
         )
 set(TEST_UTIL
+        tests/utilities/Random_Tests.cpp
         tests/utilities/ScopeGuard_Tests.cpp
         )
 set(TEST_ALL ${TEST_CORE} ${TEST_CONTAINER} ${TEST_MEMORY} ${TEST_TIME} ${TEST_UTIL})
