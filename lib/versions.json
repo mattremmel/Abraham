@@ -1,0 +1,14 @@
+{
+  "googletest": {
+    "version": "1.8",
+    "date": "8/30/2017",
+    "commit": "7f8fefabedf2965980585be8c2bff97458f28e0b",
+    "url": "https://github.com/google/googletest"
+  },
+  "rlutil": {
+    "version": "none",
+    "date": "9/21/2017",
+    "commit": "9ccff330ddedede9d18fc2ca00cf66a5ed8a3a35",
+    "url": "https://github.com/tapio/rlutil"
+  }
+}

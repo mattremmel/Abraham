@@ -166,8 +166,8 @@ set(TEST_UTIL
         )
 set(TEST_ALL ${TEST_CORE} ${TEST_CONTAINER} ${TEST_MEMORY} ${TEST_TIME} ${TEST_UTIL})
 
-set(GMOCK_SOURCE lib/gmock-1.8/gmock-gtest-all.cc lib/gmock-1.8/gmock-gtest-main.cc)
-set(GMOCK_HEADERS lib/gmock-1.8/)
+set(GMOCK_SOURCE lib/googletest-1.8/gmock-gtest-all.cc lib/googletest-1.8/gmock-gtest-main.cc)
+set(GMOCK_HEADERS lib/googletest-1.8/)
 set(GMOCK ${GMOCK_SOURCE} ${GMOCK_HEADERS})
 
 
