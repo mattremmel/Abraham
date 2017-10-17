@@ -3,7 +3,7 @@
 //
 
 #include "TerminalUtil.hpp"
-#include "rlutil.hpp"
+#include "rlutil/rlutil.hpp"
 
 using namespace abraham;
 

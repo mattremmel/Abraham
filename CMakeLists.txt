@@ -81,7 +81,7 @@ set(SOURCE_ALL ${SOURCE_CORE} ${SOURCE_CONTAINER} ${SOURCE_LOGGING} ${SOURCE_MEM
 # Libraries
 ###############
 
-set(RLUTIL_HEADERS lib/rlutil)
+set(RLUTIL_HEADERS lib)
 set(LIBRARY_HEADERS ${RLUTIL_HEADERS})
 
 
