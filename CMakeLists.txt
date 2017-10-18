@@ -1,11 +1,11 @@
-###############
+################################################################
 # CMake
 ###############
 
 cmake_minimum_required(VERSION 3.7)
 
 
-###############
+################################################################
 # Project
 ###############
 
@@ -16,12 +16,27 @@ set(PROJECT_VERSION_MINOR "1")
 set(PROJECT_VERSION_PATCH "0")
 set(CMAKE_CXX_STANDARD 14)
 
-set(STATIC_TARGET abraham)
+# Targets
+set(STATIC_TARGET abraham-static)
 set(TEST_TARGET abraham-tests)
+set(DOCS_TARGET abraham-docs)
 set(COVERAGE_TARGET abraham-coverage)
 
 
+################################################################
+# Sub Projects
 ###############
+
+set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/scripts/cmake)
+
+# Doxygen
+add_subdirectory(docs)
+
+# Code Coverage
+include(AbrahamCoverage)
+
+
+################################################################
 # Headers
 ###############
 
@@ -35,7 +50,7 @@ set(HEADERS_UTIL include/abraham/utilities)
 set(HEADERS ${HEADERS_CONTAINER} ${HEADERS_CORE} ${HEADERS_LOGGING} ${HEADERS_MEMORY} ${HEADERS_SYSTEM} ${HEADERS_TIME} ${HEADERS_UTIL})
 
 
-###############
+################################################################
 # Source
 ###############
 
@@ -77,7 +92,7 @@ set(SOURCE_UTIL
 set(SOURCE_ALL ${SOURCE_CORE} ${SOURCE_CONTAINER} ${SOURCE_LOGGING} ${SOURCE_MEMORY} ${SOURCE_SYSTEM} ${SOURCE_TIME} ${SOURCE_UTIL})
 
 
-###############
+################################################################
 # Libraries
 ###############
 
@@ -85,60 +100,7 @@ set(RLUTIL_HEADERS lib)
 set(LIBRARY_HEADERS ${RLUTIL_HEADERS})
 
 
-###############
-# Doxygen
-###############
-
-option(BUILD_DOC "Build documentation" ON)
-
-find_package(Doxygen)
-
-if (DOXYGEN_FOUND)
-
-    set(DOXYFILE_IN ${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in)
-    set(DOXYFILE ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
-
-    configure_file(${DOXYFILE_IN} ${DOXYFILE} @ONLY)
-    message("Doxygen build started")
-
-    add_custom_target(doxygen ALL
-            COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYFILE}
-            WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-            COMMENT "Generating API documentation with Doxygen"
-            VERBATIM)
-
-else (DOXYGEN_FOUND)
-    message("Doxygen needs to be installed to generate the doxygen documentation")
-endif (DOXYGEN_FOUND)
-
-
-###############
-# Coverage
-###############
-
-set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/scripts/cmake)
-
-include(CodeCoverage)
-
-set(COVERAGE_EXCLUDES
-        '${CMAKE_CURRENT_SOURCE_DIR}/lib/*'
-        '${CMAKE_CURRENT_SOURCE_DIR}/tests/*'
-        '/usr/include/*'
-        '*/c++/v1/*'
-        )
-
-SETUP_TARGET_FOR_COVERAGE(
-        NAME ${COVERAGE_TARGET}
-        EXECUTABLE ${TEST_TARGET}
-        DEPENDENCIES ${TEST_TARGET}
-)
-
-if(NOT CMAKE_BUILD_TYPE STREQUAL "Release")
-    APPEND_COVERAGE_COMPILER_FLAGS()
-endif()
-
-
-###############
+################################################################
 # Testing
 ###############
 
@@ -173,14 +135,17 @@ set(GMOCK_HEADERS lib/googletest-1.8/)
 set(GMOCK ${GMOCK_SOURCE} ${GMOCK_HEADERS})
 
 
-###############
+################################################################
 # Build
 ###############
 
+# Includes
 include_directories(${HEADERS} ${LIBRARY_HEADERS} ${GMOCK_HEADERS})
 
+# Static Library
 set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 add_library(${STATIC_TARGET} STATIC ${HEADERS} ${SOURCE_ALL})
 
+# Testing Target
 add_executable(${TEST_TARGET} ${GMOCK} ${TEST_ALL})
 target_link_libraries(${TEST_TARGET} ${STATIC_TARGET})
