@@ -13,7 +13,7 @@
 
 namespace abraham {
 
-    // Internal functions
+    /// \cond IGNORE
     namespace details {
         /**
          * True if type T is applicable by a std::uniform_int_distribution
@@ -53,6 +53,7 @@ namespace abraham {
                     || std::is_same<T, unsigned char>::value;
         };
     }
+    /// \endcond IGNORE
 
 
     /**
