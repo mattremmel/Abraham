@@ -145,6 +145,7 @@ include_directories(${HEADERS} ${LIBRARY_HEADERS} ${GMOCK_HEADERS})
 # Static Library
 set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 add_library(${STATIC_TARGET} STATIC ${HEADERS} ${SOURCE_ALL})
+set_target_properties(${STATIC_TARGET} PROPERTIES OUTPUT_NAME "abraham")
 
 # Testing Target
 add_executable(${TEST_TARGET} ${GMOCK} ${TEST_ALL})
