@@ -70,10 +70,10 @@ namespace abraham {
     public:
         /**
          * Template overload for retrieving integer type random numbers.
-         * @note Not thread safe but more efficient than thread or local scoped generator.
          * @param from - The inclusive lower limit of the randomly generated number.
          * @param to - The inclusive upper limit of the randomly generated number.
          * @return A random integer between or including the provided limits.
+         * @note Not thread safe but more efficient than thread or local scoped generator.
          */
         template<typename T = int>
         static typename std::enable_if<details::is_integer_type<T>::value, T>::type
