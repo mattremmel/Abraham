@@ -96,8 +96,12 @@ set(SOURCE_ALL ${SOURCE_CORE} ${SOURCE_CONTAINER} ${SOURCE_LOGGING} ${SOURCE_MEM
 # Libraries
 ###############
 
+# Headers
 set(RLUTIL_HEADERS lib)
-set(LIBRARY_HEADERS ${RLUTIL_HEADERS})
+set(DEPENDENCY_HEADERS ${RLUTIL_HEADERS})
+
+# Source
+set(DEPENDENCY_BUILDS )
 
 
 ################################################################
@@ -140,11 +144,12 @@ set(GMOCK ${GMOCK_SOURCE} ${GMOCK_HEADERS})
 ###############
 
 # Includes
-include_directories(${HEADERS} ${LIBRARY_HEADERS} ${GMOCK_HEADERS})
+include_directories(${HEADERS} ${DEPENDENCY_HEADERS} ${GMOCK_HEADERS})
 
 # Static Library
 set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 add_library(${STATIC_TARGET} STATIC ${HEADERS} ${SOURCE_ALL})
+target_link_libraries(${STATIC_TARGET} ${DEPENDENCY_BUILDS})
 set_target_properties(${STATIC_TARGET} PROPERTIES OUTPUT_NAME "abraham")
 
 # Testing Target
