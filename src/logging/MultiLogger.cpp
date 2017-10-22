@@ -9,7 +9,7 @@ using namespace abraham;
 
 
 MultiLogger::MultiLogger() {
-    this->_logLevel = LogLevel::all;
+    this->_logLevel = LogLevel::ALL;
     this->_loggers = std::vector<MultiLoggerEntry>();
 }
 

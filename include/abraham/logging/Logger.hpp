@@ -39,17 +39,17 @@ namespace abraham {
      * The different possible log levels supported.
      */
     enum class LogLevel {
-        all = 0,
-        trace = 10,
-        debug = 20,
-        info = 30,
-        notice = 40,
-        warning = 50,
-        error = 60,
-        critical = 70,
-        alert = 80,
-        fatal = 90,
-        off = 100
+        ALL = 0,
+        TRACE = 10,
+        DEBUG = 20,
+        INFO = 30,
+        NOTICE = 40,
+        WARNING = 50,
+        ERROR = 60,
+        CRITICAL = 70,
+        ALERT = 80,
+        FATAL = 90,
+        OFF = 100
     };
 
     /**
@@ -138,7 +138,7 @@ namespace abraham {
          * Default constructor that creates a standard Logger with log level set to 'all' by default.
          * @param level = The log level this Logger should be initialized to.
          */
-        explicit Logger(LogLevel level = LogLevel::all);
+        explicit Logger(LogLevel level = LogLevel::ALL);
 
         /**
          * Log a message with level 'trace'.

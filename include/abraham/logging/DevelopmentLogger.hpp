@@ -20,7 +20,7 @@ namespace abraham {
          * Default constructor that creates a DevelopmentLogger with the log level set to 'all' by default.
          * @param level - The log level to initialize the DevelopmentLogger to.
          */
-        explicit DevelopmentLogger(LogLevel level = LogLevel::all);
+        explicit DevelopmentLogger(LogLevel level = LogLevel::ALL);
 
         /**
          * An override to include the file, function, and line number of the log message, in addition to everything else.

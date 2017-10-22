@@ -19,7 +19,7 @@ namespace abraham {
          * Default constructor that creates a SimpleLogger with log level 'all' by default.
          * @param level - The log level to initialize the SimpleLogger to.
          */
-        explicit SimpleLogger(LogLevel level = LogLevel::all);
+        explicit SimpleLogger(LogLevel level = LogLevel::ALL);
 
         /**
          * An override to only include the log level and message in the log message.
