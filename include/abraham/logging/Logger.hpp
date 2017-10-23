@@ -62,7 +62,7 @@ namespace abraham {
         String file;
 
         /**
-         * The function name tat the log originated from.
+         * The function name that the log originated from.
          */
         String function;
 
